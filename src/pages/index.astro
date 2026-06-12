@@ -457,6 +457,14 @@ const BEHOLD_FEED_ID = '';
     align-items: center;
     justify-content: space-between;
     height: 80px;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  @media (min-width: 768px) {
+    .header-inner {
+      height: 96px;
+    }
   }
 
   .logo {
@@ -465,10 +473,16 @@ const BEHOLD_FEED_ID = '';
   }
 
   .logo-img {
-    height: 44px;
+    height: 40px;
     width: auto;
     display: block;
     mix-blend-mode: multiply;
+  }
+
+  @media (min-width: 768px) {
+    .logo-img {
+      height: 52px;
+    }
   }
 
   .nav-desktop {

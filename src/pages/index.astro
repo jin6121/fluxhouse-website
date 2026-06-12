@@ -11,7 +11,7 @@ interface NoteItem {
 
 let noteItems: NoteItem[] = [];
 try {
-  const res = await fetch('https://note.com/jin_sariimama/rss');
+  const res = await fetch('https://note.com/jin_sariimama/m/mbada4e66a2a3/rss');
   const xml = await res.text();
   const items = xml.match(/<item>([\s\S]*?)<\/item>/g) || [];
   noteItems = items.slice(0, 3).map((item) => {

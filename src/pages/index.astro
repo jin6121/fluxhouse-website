@@ -11,7 +11,7 @@ interface NoteItem {
 
 let noteItems: NoteItem[] = [];
 try {
-  const res = await fetch('https://note.com/jin_sariimama/rss');
+  const res = await fetch('https://note.com/jin_sariimama/m/mbada4e66a2a3/rss');
   const xml = await res.text();
   const items = xml.match(/<item>([\s\S]*?)<\/item>/g) || [];
   noteItems = items.slice(0, 3).map((item) => {
@@ -27,245 +27,209 @@ try {
   noteItems = [];
 }
 
-// Behold.so Feed ID（設定後に差し替え）
 const BEHOLD_FEED_ID = '';
 ---
 
 <Layout
   title="FLUX HOUSE | 南流山のレンタルスペース"
   description="千葉県流山市・南流山エリアのレンタルスペース。家族の集まり、ワークショップ、撮影など様々な用途でご利用いただけます。"
-  ogUrl="https://fluxhouse.pages.dev/"
+  ogUrl="https://fluxhouse-website.pages.dev/"
 >
 
-  <!-- ===================== HEADER ===================== -->
+  <!-- ========== HEADER ========== -->
   <header class="site-header">
     <div class="header-inner container">
       <a href="/" class="logo">
         <img src="/fluxhouse_logo_yoko_0828.png" alt="FLUX HOUSE" class="logo-img" />
       </a>
       <nav class="nav-desktop" aria-label="メインナビゲーション">
-        <a href="#concept">スペース紹介</a>
-        <a href="#pricing">料金</a>
-        <a href="#access">アクセス</a>
-        <a href="#contact">お問い合わせ</a>
+        <a href="#concept">SPACE</a>
+        <a href="#pricing">PRICE</a>
+        <a href="#access">ACCESS</a>
+        <a href="#contact">CONTACT</a>
       </nav>
       <button class="hamburger" aria-label="メニューを開く" aria-expanded="false" aria-controls="mobile-menu">
-        <span></span>
-        <span></span>
-        <span></span>
+        <span></span><span></span><span></span>
       </button>
     </div>
     <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
-      <nav aria-label="モバイルナビゲーション">
-        <a href="#concept" class="mobile-nav-link">スペース紹介</a>
-        <a href="#pricing" class="mobile-nav-link">料金</a>
-        <a href="#access" class="mobile-nav-link">アクセス</a>
-        <a href="#contact" class="mobile-nav-link">お問い合わせ</a>
+      <nav>
+        <a href="#concept" class="mobile-nav-link">SPACE</a>
+        <a href="#pricing" class="mobile-nav-link">PRICE</a>
+        <a href="#access" class="mobile-nav-link">ACCESS</a>
+        <a href="#contact" class="mobile-nav-link">CONTACT</a>
       </nav>
     </div>
   </header>
 
-  <!-- ===================== HERO ===================== -->
+  <!-- ========== HERO ========== -->
   <section class="hero">
+    <div class="hero-overlay"></div>
     <div class="hero-inner">
-      <p class="hero-label fade-in">Rental Space — Minami-Nagareyama, Chiba</p>
-      <h1 class="hero-heading fade-in fade-in-delay-1">暮らすように、<br />集まる。</h1>
-      <p class="hero-sub fade-in fade-in-delay-2">
-        つながりが育つ家。<br />千葉県流山市・南流山エリアのレンタルスペース
-      </p>
-      <a href="#contact" class="btn-primary hero-cta fade-in fade-in-delay-3">空き状況を問い合わせる</a>
+      <p class="hero-sub fade-in">Rental Space — Minami-Nagareyama, Chiba</p>
+      <h1 class="hero-heading fade-in">暮らすように、<br />集まる。</h1>
+      <p class="hero-desc fade-in">つながりが育つ家。千葉県流山市・南流山エリア</p>
+      <a href="#contact" class="btn-hero fade-in">空き状況を問い合わせる</a>
     </div>
   </section>
 
-  <!-- ===================== CONCEPT ===================== -->
-  <section class="section concept-section" id="concept">
-    <div class="container">
-      <div class="fade-in">
-        <span class="section-label">Concept</span>
-        <h2 class="section-heading">「暮らし」の延長にある<span>集いの場</span></h2>
-        <div class="divider"></div>
+  <!-- ========== CONCEPT ========== -->
+  <section class="section bg-white" id="concept">
+    <div class="container layout-text">
+      <div class="sec-title fade-in">
+        <p class="sec-en">CONCEPT</p>
+        <h2 class="sec-ja">コンセプト</h2>
       </div>
-      <div class="concept-body fade-in fade-in-delay-1">
+      <div class="text-body fade-in">
         <p>
-          FLUX HOUSEは、ただ「借りる」場所ではありません。まるで友人の家に遊びに来たような、
-          くつろいだ雰囲気の中で人が集まり、語らい、新しい何かが生まれる空間です。
+          FLUX HOUSEは、ただ「借りる」場所ではありません。<br />
+          まるで友人の家に遊びに来たような、くつろいだ雰囲気の中で<br />
+          人が集まり、語らい、新しい何かが生まれる空間です。
         </p>
         <p>
-          「FLUX（流れ）」という名の通り、ここは固定された場所ではなく、人と人が交わることで
-          その都度かたちが変わる、流動的な場所。南流山という土地が持つ、都市と自然が混ざり合う
-          豊かさを背景に、この家がみなさんの日常に溶け込む特別な一日をつくります。
+          「FLUX（流れ）」という名の通り、人と人が交わることでその都度かたちが変わる、流動的な場所。
+          南流山という土地が持つ、都市と自然が混ざり合う豊かさを背景に、
+          この家がみなさんの日常に溶け込む特別な一日をつくります。
         </p>
         <p>
           子育て世代が多く集まるこのエリアで、家族や仲間と「特別な普通の時間」を過ごしませんか。
         </p>
-        <a
-          href="https://note.com/jin_sariimama/m/mbada4e66a2a3"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="concept-link"
-        >
+        <a href="https://note.com/jin_sariimama/m/mbada4e66a2a3" target="_blank" rel="noopener noreferrer" class="text-link">
           コンセプトについて詳しく読む →
         </a>
       </div>
     </div>
   </section>
 
-  <!-- ===================== USAGE SCENES ===================== -->
-  <section class="section usage-section" id="usage">
+  <!-- ========== USAGE ========== -->
+  <section class="section bg-beige" id="usage">
     <div class="container">
-      <div class="fade-in">
-        <span class="section-label">Usage</span>
-        <h2 class="section-heading">こんな<span>シーン</span>で</h2>
-        <div class="divider"></div>
+      <div class="sec-title fade-in">
+        <p class="sec-en">USAGE</p>
+        <h2 class="sec-ja">こんなシーンで</h2>
       </div>
-      <div class="usage-grid">
-        <div class="usage-card fade-in fade-in-delay-1">
+      <div class="grid-3 grid-usage">
+        <div class="usage-card fade-in">
           <div class="usage-icon">🏠</div>
           <h3>家族の集まり</h3>
           <p>誕生日会やホームパーティーに。広々とした空間で家族みんながリラックスできます。</p>
         </div>
-        <div class="usage-card fade-in fade-in-delay-2">
+        <div class="usage-card fade-in">
           <div class="usage-icon">👩‍👧‍👦</div>
           <h3>友人・ママ友会</h3>
-          <p>子連れでも安心。お子さんが遊ぶ横で、ゆっくりおしゃべりできる場所です。</p>
+          <p>子連れでも安心。お子さんが遊ぶ横でゆっくりおしゃべりできる場所です。</p>
         </div>
-        <div class="usage-card fade-in fade-in-delay-3">
+        <div class="usage-card fade-in">
           <div class="usage-icon">📸</div>
           <h3>ワークショップ・撮影</h3>
           <p>ハンドメイド教室、料理教室、写真撮影など。温かみのある空間が作品を引き立てます。</p>
         </div>
-        <div class="usage-card fade-in fade-in-delay-4">
+        <div class="usage-card fade-in">
           <div class="usage-icon">💻</div>
           <h3>チームのオフサイト</h3>
-          <p>Wi-Fi完備。少人数チームのブレインストーミングや、リモートチームの集合場所に。</p>
+          <p>Wi-Fi完備。少人数チームのブレインストーミングや合宿に。</p>
+        </div>
+        <div class="usage-card fade-in">
+          <div class="usage-icon">🎂</div>
+          <h3>記念日・お祝い</h3>
+          <p>プライベートな空間で大切な記念日を。キッチンを使った手料理でおもてなし。</p>
+        </div>
+        <div class="usage-card fade-in">
+          <div class="usage-icon">🌿</div>
+          <h3>静かな一人時間</h3>
+          <p>集中したい作業や読書、ひとり映画など。静かで落ち着いた時間が過ごせます。</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===================== SPACE INTRO ===================== -->
-  <section class="section space-section" id="space">
+  <!-- ========== SPACE ========== -->
+  <section class="section bg-white" id="space">
     <div class="container">
-      <div class="fade-in">
-        <span class="section-label">Space</span>
-        <h2 class="section-heading">スペース<span>紹介</span></h2>
-        <div class="divider"></div>
+      <div class="sec-title fade-in">
+        <p class="sec-en">SPACE</p>
+        <h2 class="sec-ja">スペース紹介</h2>
       </div>
-      <div class="gallery fade-in fade-in-delay-1">
-        <div class="gallery-item gallery-item--large">
-          <div class="photo-placeholder">
-            <span>リビング・ダイニング</span>
-          </div>
+      <div class="gallery fade-in">
+        <div class="gallery-main">
+          <div class="photo-ph ph-main"><span>リビング・ダイニング</span></div>
         </div>
-        <div class="gallery-item">
-          <div class="photo-placeholder photo-placeholder--kitchen">
-            <span>キッチン</span>
-          </div>
-        </div>
-        <div class="gallery-item">
-          <div class="photo-placeholder photo-placeholder--exterior">
-            <span>外観・エントランス</span>
-          </div>
+        <div class="gallery-sub">
+          <div class="photo-ph ph-kitchen"><span>キッチン</span></div>
+          <div class="photo-ph ph-exterior"><span>外観・エントランス</span></div>
         </div>
       </div>
-      <div class="equipment fade-in fade-in-delay-2">
-        <h3 class="equipment-title">設備・備品</h3>
-        <ul class="equipment-list">
-          <li>
-            <span class="equip-icon">📶</span>
-            <span>Wi-Fi（高速インターネット）</span>
-          </li>
-          <li>
-            <span class="equip-icon">🍳</span>
-            <span>キッチン（IHコンロ・調理器具）</span>
-          </li>
-          <li>
-            <span class="equip-icon">❄️</span>
-            <span>冷暖房完備</span>
-          </li>
-          <li>
-            <span class="equip-icon">🚻</span>
-            <span>トイレ</span>
-          </li>
-          <li>
-            <span class="equip-icon">🚗</span>
-            <span>駐車場（要確認）</span>
-          </li>
+      <div class="equipment fade-in">
+        <h3 class="equip-heading">設備・備品</h3>
+        <ul class="equip-list">
+          <li><span class="equip-icon">📶</span>Wi-Fi（高速インターネット）</li>
+          <li><span class="equip-icon">🍳</span>キッチン（IHコンロ・調理器具）</li>
+          <li><span class="equip-icon">❄️</span>冷暖房完備</li>
+          <li><span class="equip-icon">🚻</span>トイレ</li>
+          <li><span class="equip-icon">🚗</span>駐車場（要確認）</li>
         </ul>
       </div>
     </div>
   </section>
 
-  <!-- ===================== PRICING ===================== -->
-  <section class="section pricing-section" id="pricing">
+  <!-- ========== PRICING ========== -->
+  <section class="section bg-dark" id="pricing">
     <div class="container">
-      <div class="fade-in">
-        <span class="section-label">Pricing</span>
-        <h2 class="section-heading"><span>料金</span>について</h2>
-        <div class="divider"></div>
+      <div class="sec-title fade-in">
+        <p class="sec-en sec-en--light">PRICING</p>
+        <h2 class="sec-ja sec-ja--light">料金</h2>
       </div>
-      <div class="pricing-grid fade-in fade-in-delay-1">
+      <div class="pricing-wrap fade-in">
         <div class="pricing-card">
-          <p class="pricing-day">平日</p>
-          <p class="pricing-amount">¥3,000<span class="pricing-unit"> / 時</span></p>
+          <p class="pricing-label">平日</p>
+          <p class="pricing-price">¥3,000<span> / 時</span></p>
         </div>
-        <div class="pricing-card pricing-card--featured">
-          <p class="pricing-day">土日祝</p>
-          <p class="pricing-amount">¥4,000<span class="pricing-unit"> / 時</span></p>
+        <div class="pricing-card pricing-card--accent">
+          <p class="pricing-label">土日祝</p>
+          <p class="pricing-price">¥4,000<span> / 時</span></p>
         </div>
       </div>
-      <div class="pricing-notes fade-in fade-in-delay-2">
-        <p>📌 最低利用時間：2時間〜</p>
-        <p class="pricing-disclaimer">※料金は予告なく変更される場合があります</p>
-      </div>
-      <div class="pricing-cta fade-in fade-in-delay-3">
-        <a href="#contact" class="btn-primary">予約・空き状況を確認する</a>
+      <ul class="pricing-notes fade-in">
+        <li>最低利用時間：2時間〜</li>
+        <li>清掃費：無料</li>
+      </ul>
+      <p class="pricing-disclaimer fade-in">※料金は予告なく変更される場合があります</p>
+      <div class="fade-in" style="margin-top:48px;">
+        <a href="#contact" class="btn-outline-light">予約・空き状況を確認する</a>
       </div>
     </div>
   </section>
 
-  <!-- ===================== ACCESS ===================== -->
-  <section class="section access-section" id="access">
+  <!-- ========== ACCESS ========== -->
+  <section class="section bg-beige" id="access">
     <div class="container">
-      <div class="fade-in">
-        <span class="section-label">Access</span>
-        <h2 class="section-heading">アクセス</h2>
-        <div class="divider"></div>
+      <div class="sec-title fade-in">
+        <p class="sec-en">ACCESS</p>
+        <h2 class="sec-ja">アクセス</h2>
       </div>
-      <div class="access-layout fade-in fade-in-delay-1">
-        <div class="access-info">
+      <div class="access-layout">
+        <div class="access-info fade-in">
           <div class="access-item">
-            <span class="access-icon">📍</span>
-            <div>
-              <p class="access-label-text">所在地</p>
-              <p>千葉県流山市南流山</p>
-              <p class="access-note">（詳細住所はお問い合わせください）</p>
-            </div>
+            <p class="access-label">所在地</p>
+            <p>千葉県流山市南流山</p>
+            <p class="access-note">（詳細住所はお問い合わせください）</p>
           </div>
           <div class="access-item">
-            <span class="access-icon">🚃</span>
-            <div>
-              <p class="access-label-text">最寄り駅</p>
-              <p>南流山駅から徒歩圏内</p>
-              <p class="access-note">JR武蔵野線・つくばエクスプレス線</p>
-            </div>
+            <p class="access-label">最寄り駅</p>
+            <p><strong>南流山駅</strong>から徒歩圏内</p>
+            <p class="access-note">JR武蔵野線・つくばエクスプレス線</p>
           </div>
           <div class="access-item">
-            <span class="access-icon">🚗</span>
-            <div>
-              <p class="access-label-text">お車でのアクセス</p>
-              <p>駐車場についてはお問い合わせください</p>
-            </div>
+            <p class="access-label">お車でのアクセス</p>
+            <p>駐車場についてはお問い合わせください</p>
           </div>
         </div>
-        <div class="map-wrapper">
+        <div class="map-wrap fade-in">
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3235.3!2d139.9!3d35.85!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6018836d92ebf82b%3A0x96dab22f96b97e5b!2z5Y2X5rW35bGx5Y-j!5e0!3m2!1sja!2sjp!4v1"
-            width="100%"
-            height="360"
-            style="border:0; border-radius: 12px;"
-            allowfullscreen=""
-            loading="lazy"
+            width="100%" height="400"
+            style="border:0;"
+            allowfullscreen="" loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"
             title="南流山駅周辺マップ"
           ></iframe>
@@ -274,168 +238,134 @@ const BEHOLD_FEED_ID = '';
     </div>
   </section>
 
-  <!-- ===================== AREA GUIDE ===================== -->
-  <section class="section area-section" id="area">
+  <!-- ========== AREA GUIDE ========== -->
+  <section class="section bg-white" id="area">
     <div class="container">
-      <div class="fade-in">
-        <span class="section-label">Area Guide</span>
-        <h2 class="section-heading">周辺<span>スポット</span></h2>
-        <div class="divider"></div>
-        <p class="area-intro">FLUX HOUSEの近くにある、おすすめのスポットをご紹介します。</p>
+      <div class="sec-title fade-in">
+        <p class="sec-en">LOCAL EXPERIENCE</p>
+        <h2 class="sec-ja">周辺おすすめスポット</h2>
       </div>
-      <div class="area-grid fade-in fade-in-delay-1">
-        <div class="area-card">
-          <div class="area-icon">☕</div>
-          <div class="area-content">
-            <span class="area-badge">カフェ</span>
-            <h3>レタンプリュス</h3>
-            <p>地元で人気のおしゃれなカフェ。こだわりのコーヒーとスイーツでひと休み。</p>
-          </div>
+      <div class="grid-3">
+        <div class="area-card fade-in">
+          <span class="area-badge">カフェ</span>
+          <h3>レタンプリュス</h3>
+          <p>地元で人気のおしゃれなカフェ。こだわりのコーヒーとスイーツでひと休み。</p>
         </div>
-        <div class="area-card">
-          <div class="area-icon">🪑</div>
-          <div class="area-content">
-            <span class="area-badge">ショップ</span>
-            <h3>LIANTIQE</h3>
-            <p>センスあふれるアンティーク家具のショップ。空間づくりのインスピレーションに。</p>
-          </div>
+        <div class="area-card fade-in">
+          <span class="area-badge">インテリア</span>
+          <h3>LIANTIQE</h3>
+          <p>センスあふれるアンティーク家具のショップ。空間づくりのインスピレーションに。</p>
         </div>
-        <div class="area-card">
-          <div class="area-icon">♨️</div>
-          <div class="area-content">
-            <span class="area-badge">スパ・温浴</span>
-            <h3>スパメッツァおおたか</h3>
-            <p>大型スパ施設でリフレッシュ。サウナ、岩盤浴など充実した施設が揃います。</p>
-          </div>
+        <div class="area-card fade-in">
+          <span class="area-badge">スパ・温浴</span>
+          <h3>スパメッツァおおたか</h3>
+          <p>大型スパ施設でリフレッシュ。サウナ・岩盤浴など充実した施設が揃います。</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===================== MINPAKU PREVIEW ===================== -->
-  <!-- ===================== NOTE POSTS ===================== -->
-  <section class="section sns-section" id="sns">
+  <!-- ========== SNS / NOTE ========== -->
+  <section class="section bg-beige" id="sns">
     <div class="container">
+      <div class="sec-title fade-in">
+        <p class="sec-en">JOURNAL</p>
+        <h2 class="sec-ja">最新情報</h2>
+      </div>
       <div class="sns-grid">
-
         <!-- note -->
         <div class="sns-col fade-in">
-          <div class="sns-header">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="var(--color-accent)" aria-hidden="true"><path d="M18.5 3H5.5C4.1 3 3 4.1 3 5.5v13C3 19.9 4.1 21 5.5 21h13c1.4 0 2.5-1.1 2.5-2.5v-13C21 4.1 19.9 3 18.5 3zm-1 14H6.5v-1.5h11V17zm0-3H6.5v-1.5h11V14zm0-3H6.5V9.5h11V11zm0-3H6.5V6.5h11V8z"/></svg>
-            <span class="sns-title">note</span>
+          <div class="sns-head">
+            <p class="sns-platform">note — FLUX HOUSEマガジン</p>
           </div>
           {noteItems.length > 0 ? (
             <ul class="note-list">
               {noteItems.map((item) => (
                 <li class="note-item">
                   <a href={item.link} target="_blank" rel="noopener noreferrer">
-                    <p class="note-item-title">{item.title}</p>
-                    {item.description && <p class="note-item-desc">{item.description}…</p>}
-                    <p class="note-item-date">{item.pubDate}</p>
+                    <p class="note-title">{item.title}</p>
+                    {item.description && <p class="note-desc">{item.description}…</p>}
+                    <p class="note-date">{item.pubDate}</p>
                   </a>
                 </li>
               ))}
             </ul>
           ) : (
-            <p class="sns-empty">
-              <a href="https://note.com/jin_sariimama/m/mbada4e66a2a3" target="_blank" rel="noopener noreferrer">noteで読む →</a>
-            </p>
+            <div class="sns-empty">
+              <a href="https://note.com/jin_sariimama/m/mbada4e66a2a3" target="_blank" rel="noopener noreferrer">noteを読む →</a>
+            </div>
           )}
-          <a href="https://note.com/jin_sariimama/m/mbada4e66a2a3" target="_blank" rel="noopener noreferrer" class="sns-more">すべての記事を見る →</a>
+          <a href="https://note.com/jin_sariimama/m/mbada4e66a2a3" target="_blank" rel="noopener noreferrer" class="sns-more">すべての記事を読む →</a>
         </div>
 
         <!-- Instagram -->
-        <div class="sns-col fade-in fade-in-delay-1">
-          <div class="sns-header">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="var(--color-accent)" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-            <span class="sns-title">Instagram</span>
+        <div class="sns-col fade-in">
+          <div class="sns-head">
+            <p class="sns-platform">Instagram — @fluxhouse_nagareyama</p>
           </div>
           {BEHOLD_FEED_ID ? (
-            <div id="behold-widget">
-              <behold-widget feed-id={BEHOLD_FEED_ID}></behold-widget>
-            </div>
+            <behold-widget feed-id={BEHOLD_FEED_ID}></behold-widget>
           ) : (
-            <div class="instagram-placeholder">
-              <p>Behold.so連携後に自動表示されます</p>
-              <a href="https://www.instagram.com/fluxhouse_nagareyama/" target="_blank" rel="noopener noreferrer" class="btn-outline" style="margin-top:16px;display:inline-block;">Instagramを見る</a>
+            <div class="ig-placeholder">
+              <p>最新の写真はInstagramで発信中</p>
+              <a href="https://www.instagram.com/fluxhouse_nagareyama/" target="_blank" rel="noopener noreferrer" class="btn-outline">Instagramを見る</a>
             </div>
           )}
           <a href="https://www.instagram.com/fluxhouse_nagareyama/" target="_blank" rel="noopener noreferrer" class="sns-more">Instagramをフォローする →</a>
         </div>
-
       </div>
     </div>
   </section>
 
-  <section class="section minpaku-section" id="minpaku">
+  <!-- ========== MINPAKU ========== -->
+  <section class="section bg-white" id="minpaku">
     <div class="container">
-      <div class="minpaku-card fade-in">
-        <span class="coming-soon-badge">Coming Soon</span>
-        <h2 class="minpaku-heading">民泊・住宅宿泊事業<br />準備中</h2>
+      <div class="minpaku-inner fade-in">
+        <span class="badge">Coming Soon</span>
+        <div class="sec-title" style="margin-top:20px;">
+          <p class="sec-en">STAY</p>
+          <h2 class="sec-ja">民泊・住宅宿泊事業 準備中</h2>
+        </div>
         <p class="minpaku-text">
-          FLUX HOUSEでは現在、住宅宿泊事業（民泊）の開始に向けて準備を進めています。
-          「泊まる」ことでより深くこの場所と南流山を体験できるよう、準備が整い次第
-          Instagramにてお知らせします。
+          FLUX HOUSEでは、住宅宿泊事業（民泊）の開始に向けて準備を進めています。<br />
+          「泊まる」ことでより深くこの場所と南流山を体験できるよう、<br />
+          準備が整い次第Instagramにてお知らせします。
         </p>
-        <a
-          href="https://www.instagram.com/fluxhouse_nagareyama/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="btn-outline minpaku-btn"
-        >
-          <span class="instagram-icon">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-              <circle cx="12" cy="12" r="4"></circle>
-              <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"></circle>
-            </svg>
-          </span>
+        <a href="https://www.instagram.com/fluxhouse_nagareyama/" target="_blank" rel="noopener noreferrer" class="btn-outline">
           Instagramをフォローする
         </a>
       </div>
     </div>
   </section>
 
-  <!-- ===================== CONTACT ===================== -->
-  <section class="section contact-section" id="contact">
+  <!-- ========== CONTACT ========== -->
+  <section class="section bg-accent" id="contact">
     <div class="container">
       <div class="contact-inner fade-in">
-        <span class="section-label">Contact</span>
-        <h2 class="section-heading">お問い合わせ</h2>
-        <div class="divider"></div>
+        <div class="sec-title">
+          <p class="sec-en sec-en--light">CONTACT</p>
+          <h2 class="sec-ja sec-ja--light">お問い合わせ</h2>
+        </div>
         <p class="contact-text">
-          ご予約・空き状況の確認・その他のご質問は、下記のフォームからお気軽にどうぞ。
+          ご予約・空き状況の確認・その他のご質問は、<br />下記のフォームからお気軽にどうぞ。<br />
           通常2〜3営業日以内にご返信いたします。
         </p>
-        <a
-          href="https://forms.gle/MAnhrqk2x8Rn2JWD7"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="btn-primary contact-btn"
-        >
+        <a href="https://forms.gle/MAnhrqk2x8Rn2JWD7" target="_blank" rel="noopener noreferrer" class="btn-outline-light">
           お問い合わせ・空き状況を確認する
         </a>
       </div>
     </div>
   </section>
 
-  <!-- ===================== FOOTER ===================== -->
+  <!-- ========== FOOTER ========== -->
   <footer class="site-footer">
-    <div class="footer-inner container">
+    <div class="container footer-inner">
       <div class="footer-logo">
         <img src="/fluxhouse_logo_tate_white.png" alt="FLUX HOUSE" class="footer-logo-img" />
       </div>
-      <nav class="footer-links" aria-label="フッターリンク">
-        <a
-          href="https://www.instagram.com/fluxhouse_nagareyama/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >Instagram</a>
-        <a
-          href="https://note.com/jin_sariimama/m/mbada4e66a2a3"
-          target="_blank"
-          rel="noopener noreferrer"
-        >note</a>
+      <nav class="footer-links">
+        <a href="https://www.instagram.com/fluxhouse_nagareyama/" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="https://note.com/jin_sariimama/m/mbada4e66a2a3" target="_blank" rel="noopener noreferrer">note</a>
         <a href="#contact">お問い合わせ</a>
       </nav>
       <p class="footer-copy">©2026 FLUX HOUSE</p>
@@ -446,13 +376,67 @@ const BEHOLD_FEED_ID = '';
 
 <style>
   /* ============================================================
+     LAYOUT BACKGROUNDS
+     ============================================================ */
+  .bg-white  { background: #ffffff; }
+  .bg-beige  { background: var(--color-bg); }
+  .bg-dark   { background: var(--color-text); }
+  .bg-accent { background: var(--color-accent); }
+
+  /* ============================================================
+     SECTION BASE
+     ============================================================ */
+  .section {
+    padding: 80px 0;
+  }
+
+  @media (min-width: 768px) {
+    .section {
+      padding: 120px 0;
+    }
+  }
+
+  /* ============================================================
+     SECTION TITLE  (英語大文字 + 日本語)
+     ============================================================ */
+  .sec-title {
+    margin-bottom: 56px;
+  }
+
+  .sec-en {
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-bottom: 10px;
+  }
+
+  .sec-en--light {
+    color: rgba(255,255,255,0.6);
+  }
+
+  .sec-ja {
+    font-family: var(--font-heading);
+    font-size: clamp(1.6rem, 4vw, 2.4rem);
+    font-weight: 700;
+    color: var(--color-text);
+    line-height: 1.3;
+  }
+
+  .sec-ja--light {
+    color: #ffffff;
+  }
+
+  /* ============================================================
      HEADER
      ============================================================ */
   .site-header {
     position: sticky;
     top: 0;
     z-index: 100;
-    background: rgba(245, 240, 232, 0.88);
+    background: rgba(245, 240, 232, 0.92);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--color-border);
@@ -462,7 +446,7 @@ const BEHOLD_FEED_ID = '';
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 64px;
+    height: 80px;
   }
 
   .logo {
@@ -471,24 +455,21 @@ const BEHOLD_FEED_ID = '';
   }
 
   .logo-img {
-    height: 36px;
+    height: 44px;
     width: auto;
     display: block;
-  }
-
-  .logo:hover {
-    color: var(--color-accent);
+    mix-blend-mode: multiply;
   }
 
   .nav-desktop {
     display: none;
-    gap: 36px;
+    gap: 40px;
   }
 
   .nav-desktop a {
-    font-size: 0.875rem;
-    font-weight: 400;
-    letter-spacing: 0.04em;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
     color: var(--color-text);
     position: relative;
     transition: color var(--transition);
@@ -500,7 +481,7 @@ const BEHOLD_FEED_ID = '';
     bottom: -4px;
     left: 0;
     width: 0;
-    height: 1.5px;
+    height: 1px;
     background: var(--color-accent);
     transition: width var(--transition);
   }
@@ -514,15 +495,10 @@ const BEHOLD_FEED_ID = '';
   }
 
   @media (min-width: 768px) {
-    .nav-desktop {
-      display: flex;
-    }
-    .hamburger {
-      display: none;
-    }
+    .nav-desktop { display: flex; }
+    .hamburger   { display: none; }
   }
 
-  /* Hamburger */
   .hamburger {
     display: flex;
     flex-direction: column;
@@ -545,17 +521,10 @@ const BEHOLD_FEED_ID = '';
     transition: transform 0.3s ease, opacity 0.3s ease;
   }
 
-  .hamburger.open span:nth-child(1) {
-    transform: translateY(6.5px) rotate(45deg);
-  }
-  .hamburger.open span:nth-child(2) {
-    opacity: 0;
-  }
-  .hamburger.open span:nth-child(3) {
-    transform: translateY(-6.5px) rotate(-45deg);
-  }
+  .hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
 
-  /* Mobile menu */
   .mobile-menu {
     max-height: 0;
     overflow: hidden;
@@ -564,56 +533,47 @@ const BEHOLD_FEED_ID = '';
     border-top: 1px solid var(--color-border);
   }
 
-  .mobile-menu.open {
-    max-height: 320px;
-  }
+  .mobile-menu.open { max-height: 320px; }
 
   .mobile-menu nav {
     display: flex;
     flex-direction: column;
     padding: 16px 24px 24px;
-    gap: 0;
   }
 
   .mobile-nav-link {
-    font-size: 1rem;
-    font-weight: 400;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
     color: var(--color-text);
     padding: 14px 0;
-    border-bottom: 1px solid var(--color-light);
-    letter-spacing: 0.04em;
+    border-bottom: 1px solid var(--color-border);
     transition: color var(--transition);
   }
 
-  .mobile-nav-link:last-child {
-    border-bottom: none;
-  }
-
-  .mobile-nav-link:hover {
-    color: var(--color-accent);
-  }
+  .mobile-nav-link:last-child { border-bottom: none; }
+  .mobile-nav-link:hover { color: var(--color-accent); }
 
   /* ============================================================
      HERO
      ============================================================ */
   .hero {
-    min-height: 90vh;
+    position: relative;
+    min-height: 100svh;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, #8B6F47 0%, #2C2017 100%);
-    position: relative;
+    background: linear-gradient(150deg, #4A3020 0%, #2C2017 60%, #1A1209 100%);
     overflow: hidden;
-    padding: 80px 24px;
+    padding: 120px 24px 80px;
   }
 
-  .hero::before {
-    content: '';
+  .hero-overlay {
     position: absolute;
     inset: 0;
     background:
-      radial-gradient(ellipse 60% 60% at 20% 80%, rgba(139, 111, 71, 0.35) 0%, transparent 70%),
-      radial-gradient(ellipse 40% 40% at 80% 20%, rgba(184, 150, 106, 0.2) 0%, transparent 60%);
+      radial-gradient(ellipse 70% 50% at 15% 70%, rgba(139,111,71,0.4) 0%, transparent 65%),
+      radial-gradient(ellipse 40% 40% at 85% 20%, rgba(184,150,106,0.15) 0%, transparent 60%);
     pointer-events: none;
   }
 
@@ -621,124 +581,113 @@ const BEHOLD_FEED_ID = '';
     position: relative;
     z-index: 1;
     text-align: center;
-    max-width: 720px;
+    max-width: 760px;
     margin: 0 auto;
   }
 
-  .hero-label {
-    font-family: var(--font-body);
-    font-size: 0.75rem;
-    letter-spacing: 0.25em;
+  .hero-sub {
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
     text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.65);
-    margin-bottom: 24px;
+    color: rgba(255,255,255,0.55);
+    margin-bottom: 28px;
   }
 
   .hero-heading {
     font-family: var(--font-heading);
-    font-size: clamp(2.6rem, 8vw, 5.5rem);
+    font-size: clamp(3rem, 10vw, 6.5rem);
     font-weight: 700;
-    color: var(--color-white);
-    line-height: 1.25;
+    color: #ffffff;
+    line-height: 1.2;
     letter-spacing: 0.04em;
-    margin-bottom: 28px;
-    text-shadow: 0 2px 32px rgba(0, 0, 0, 0.2);
+    margin-bottom: 32px;
+    text-shadow: 0 4px 48px rgba(0,0,0,0.25);
   }
 
-  .hero-sub {
-    font-size: clamp(0.95rem, 2.5vw, 1.125rem);
-    color: rgba(255, 255, 255, 0.82);
-    line-height: 1.9;
-    margin-bottom: 48px;
-    letter-spacing: 0.06em;
+  .hero-desc {
+    font-size: clamp(0.9rem, 2vw, 1rem);
+    color: rgba(255,255,255,0.7);
+    letter-spacing: 0.08em;
+    margin-bottom: 56px;
+    line-height: 1.8;
   }
 
-  .hero-cta {
-    font-size: 1rem;
-    padding: 18px 44px;
-    background: var(--color-white);
-    color: var(--color-text);
-    border-radius: 4px;
+  .btn-hero {
+    display: inline-block;
+    border: 1px solid rgba(255,255,255,0.7);
+    color: #ffffff;
+    font-size: 0.875rem;
     font-weight: 500;
-    letter-spacing: 0.05em;
-    transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+    letter-spacing: 0.1em;
+    padding: 16px 48px;
+    border-radius: 2px;
+    transition: background var(--transition), color var(--transition), border-color var(--transition);
   }
 
-  .hero-cta:hover {
-    background: var(--color-light);
-    transform: translateY(-3px);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
-  }
-
-  /* ============================================================
-     GENERIC SECTION
-     ============================================================ */
-  .section {
-    padding: var(--section-padding-mobile);
-  }
-
-  @media (min-width: 768px) {
-    .section {
-      padding: var(--section-padding-desktop);
-    }
+  .btn-hero:hover {
+    background: #ffffff;
+    color: var(--color-text);
+    border-color: #ffffff;
   }
 
   /* ============================================================
      CONCEPT
      ============================================================ */
-  .concept-section {
-    background: var(--color-bg);
-  }
-
-  .concept-body p {
-    font-size: 1rem;
-    line-height: 2;
-    color: var(--color-text);
-    margin-bottom: 20px;
-    max-width: 680px;
-  }
-
-  .concept-link {
-    display: inline-block;
-    margin-top: 12px;
-    font-size: 0.9rem;
-    font-weight: 500;
-    color: var(--color-accent);
-    letter-spacing: 0.04em;
-    border-bottom: 1px solid transparent;
-    transition: border-color var(--transition), color var(--transition);
-  }
-
-  .concept-link:hover {
-    border-color: var(--color-accent);
-    color: var(--color-text);
-  }
-
-  /* ============================================================
-     USAGE SCENES
-     ============================================================ */
-  .usage-section {
-    background: var(--color-light);
-  }
-
-  .usage-grid {
+  .layout-text {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-    margin-top: 8px;
+    grid-template-columns: 1fr;
+    gap: 48px;
   }
 
-  @media (min-width: 768px) {
-    .usage-grid {
-      grid-template-columns: repeat(4, 1fr);
-      gap: 24px;
+  @media (min-width: 900px) {
+    .layout-text {
+      grid-template-columns: 280px 1fr;
+      gap: 80px;
+      align-items: start;
     }
   }
 
+  .text-body p {
+    font-size: 1.05rem;
+    line-height: 2.1;
+    color: var(--color-text);
+    margin-bottom: 24px;
+  }
+
+  .text-link {
+    display: inline-block;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--color-accent);
+    letter-spacing: 0.05em;
+    border-bottom: 1px solid var(--color-accent);
+    padding-bottom: 2px;
+    transition: opacity var(--transition);
+  }
+
+  .text-link:hover { opacity: 0.65; }
+
+  /* ============================================================
+     USAGE
+     ============================================================ */
+  .grid-3 {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  @media (min-width: 640px) {
+    .grid-3 { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (min-width: 900px) {
+    .grid-3 { grid-template-columns: repeat(3, 1fr); }
+  }
+
   .usage-card {
-    background: var(--color-white);
-    border-radius: var(--radius);
-    padding: 28px 20px;
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 36px 28px;
     box-shadow: var(--shadow);
     transition: transform var(--transition), box-shadow var(--transition);
   }
@@ -749,442 +698,448 @@ const BEHOLD_FEED_ID = '';
   }
 
   .usage-icon {
-    font-size: 2rem;
-    margin-bottom: 16px;
+    font-size: 2.2rem;
+    margin-bottom: 20px;
   }
 
   .usage-card h3 {
     font-family: var(--font-heading);
-    font-size: 1rem;
+    font-size: 1.05rem;
     font-weight: 600;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
+    color: var(--color-text);
   }
 
   .usage-card p {
-    font-size: 0.85rem;
-    line-height: 1.75;
+    font-size: 0.875rem;
+    line-height: 1.85;
     color: #5A4535;
   }
 
   /* ============================================================
-     SPACE INTRO
+     SPACE / GALLERY
      ============================================================ */
-  .space-section {
-    background: var(--color-bg);
-  }
-
   .gallery {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto auto;
+    grid-template-columns: 1fr;
     gap: 12px;
-    margin-bottom: 48px;
+    margin-bottom: 56px;
   }
 
   @media (min-width: 768px) {
     .gallery {
-      grid-template-columns: 2fr 1fr 1fr;
-      grid-template-rows: auto;
+      grid-template-columns: 1.6fr 1fr;
       gap: 16px;
     }
   }
 
-  .gallery-item--large {
-    grid-column: 1 / -1;
-  }
-
-  @media (min-width: 768px) {
-    .gallery-item--large {
-      grid-column: 1;
-      grid-row: 1;
-    }
-  }
-
-  .photo-placeholder {
-    background: linear-gradient(135deg, #C4A882 0%, #8B6F47 100%);
-    border-radius: var(--radius);
-    aspect-ratio: 4/3;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-  }
-
-  .gallery-item--large .photo-placeholder {
-    aspect-ratio: 16/9;
-  }
-
-  .photo-placeholder span {
-    font-family: var(--font-heading);
-    font-size: 0.9rem;
-    color: rgba(255, 255, 255, 0.9);
-    letter-spacing: 0.1em;
-  }
-
-  .photo-placeholder--kitchen {
-    background: linear-gradient(135deg, #A0896B 0%, #6B5038 100%);
-  }
-
-  .photo-placeholder--exterior {
-    background: linear-gradient(135deg, #B8A08A 0%, #7D6048 100%);
-  }
-
-  /* Equipment */
-  .equipment-title {
-    font-family: var(--font-heading);
-    font-size: 1.125rem;
-    font-weight: 600;
-    margin-bottom: 20px;
-  }
-
-  .equipment-list {
+  .gallery-sub {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
     gap: 12px;
   }
 
-  @media (min-width: 560px) {
-    .equipment-list {
-      grid-template-columns: repeat(2, 1fr);
+  @media (min-width: 768px) {
+    .gallery-sub {
+      grid-template-columns: 1fr;
+      gap: 16px;
     }
+  }
+
+  .photo-ph {
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 4/3;
+  }
+
+  .gallery-main .photo-ph {
+    aspect-ratio: unset;
+    height: 100%;
+    min-height: 240px;
   }
 
   @media (min-width: 768px) {
-    .equipment-list {
-      grid-template-columns: repeat(3, 1fr);
-    }
+    .gallery-main .photo-ph { min-height: 440px; }
+    .gallery-sub .photo-ph  { min-height: 200px; }
   }
 
-  .equipment-list li {
+  .photo-ph span {
+    font-family: var(--font-heading);
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.85);
+    letter-spacing: 0.08em;
+  }
+
+  .ph-main     { background: linear-gradient(135deg, #C4A882, #8B6F47); }
+  .ph-kitchen  { background: linear-gradient(135deg, #A0896B, #6B5038); }
+  .ph-exterior { background: linear-gradient(135deg, #B8A08A, #7D6048); }
+
+  .equip-heading {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 24px;
+    color: var(--color-text);
+  }
+
+  .equip-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  @media (min-width: 480px) {
+    .equip-list { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (min-width: 768px) {
+    .equip-list { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  .equip-list li {
     display: flex;
     align-items: center;
     gap: 10px;
-    background: var(--color-light);
-    border-radius: 8px;
-    padding: 14px 16px;
+    background: var(--color-bg);
+    border-radius: 6px;
+    padding: 14px 18px;
     font-size: 0.9rem;
+    color: var(--color-text);
   }
 
-  .equip-icon {
-    font-size: 1.25rem;
-    flex-shrink: 0;
-  }
+  .equip-icon { font-size: 1.2rem; }
 
   /* ============================================================
      PRICING
      ============================================================ */
-  .pricing-section {
-    background: var(--color-text);
-  }
-
-  .pricing-section .section-label {
-    color: var(--color-accent-light);
-  }
-
-  .pricing-section .section-heading {
-    color: var(--color-white);
-  }
-
-  .pricing-section .section-heading span {
-    color: var(--color-accent-light);
-  }
-
-  .pricing-section .divider {
-    background: var(--color-accent);
-  }
-
-  .pricing-grid {
+  .pricing-wrap {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 20px;
-    max-width: 560px;
-    margin-bottom: 32px;
-  }
-
-  @media (min-width: 768px) {
-    .pricing-grid {
-      gap: 28px;
-    }
+    max-width: 500px;
+    margin-bottom: 36px;
   }
 
   .pricing-card {
-    background: rgba(255, 255, 255, 0.07);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    border-radius: var(--radius);
-    padding: 28px 20px;
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 8px;
+    padding: 32px 20px;
     text-align: center;
-    transition: background var(--transition), border-color var(--transition);
   }
 
-  .pricing-card--featured {
-    background: rgba(139, 111, 71, 0.3);
+  .pricing-card--accent {
     border-color: var(--color-accent);
+    background: rgba(139,111,71,0.25);
   }
 
-  .pricing-day {
-    font-size: 0.8rem;
+  .pricing-label {
+    font-size: 0.75rem;
     letter-spacing: 0.15em;
-    color: rgba(255, 255, 255, 0.6);
-    margin-bottom: 12px;
-    font-family: var(--font-body);
+    color: rgba(255,255,255,0.55);
+    margin-bottom: 14px;
   }
 
-  .pricing-amount {
+  .pricing-price {
     font-family: var(--font-heading);
-    font-size: clamp(1.8rem, 5vw, 2.8rem);
+    font-size: clamp(1.8rem, 5vw, 2.6rem);
     font-weight: 700;
-    color: var(--color-white);
+    color: #ffffff;
   }
 
-  .pricing-unit {
-    font-size: 1rem;
+  .pricing-price span {
+    font-size: 0.95rem;
     font-weight: 400;
-    color: rgba(255, 255, 255, 0.65);
+    color: rgba(255,255,255,0.55);
   }
 
   .pricing-notes {
-    margin-bottom: 40px;
+    list-style: none;
+    margin-bottom: 8px;
   }
 
-  .pricing-notes p {
+  .pricing-notes li {
     font-size: 0.9rem;
-    color: rgba(255, 255, 255, 0.75);
-    margin-bottom: 6px;
+    color: rgba(255,255,255,0.7);
+    line-height: 2;
+  }
+
+  .pricing-notes li::before {
+    content: '— ';
+    color: var(--color-accent-light);
   }
 
   .pricing-disclaimer {
-    font-size: 0.8rem !important;
-    color: rgba(255, 255, 255, 0.45) !important;
-  }
-
-  .pricing-cta .btn-primary {
-    background: var(--color-accent);
-  }
-
-  .pricing-cta .btn-primary:hover {
-    background: var(--color-white);
-    color: var(--color-text);
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.35);
   }
 
   /* ============================================================
      ACCESS
      ============================================================ */
-  .access-section {
-    background: var(--color-light);
-  }
-
   .access-layout {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: 48px;
   }
 
   @media (min-width: 768px) {
     .access-layout {
-      grid-template-columns: 1fr 1.4fr;
-      gap: 60px;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 64px;
       align-items: start;
     }
   }
 
   .access-item {
-    display: flex;
-    gap: 16px;
-    margin-bottom: 28px;
+    margin-bottom: 32px;
   }
 
-  .access-item:last-child {
-    margin-bottom: 0;
-  }
+  .access-item:last-child { margin-bottom: 0; }
 
-  .access-icon {
-    font-size: 1.4rem;
-    flex-shrink: 0;
-    margin-top: 2px;
-  }
-
-  .access-label-text {
-    font-size: 0.75rem;
+  .access-label {
+    font-size: 0.7rem;
     font-weight: 500;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
     color: var(--color-accent);
-    margin-bottom: 4px;
+    margin-bottom: 6px;
+  }
+
+  .access-item p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--color-text);
   }
 
   .access-note {
-    font-size: 0.8rem;
-    color: #7A6655;
+    font-size: 0.8rem !important;
+    color: #7A6655 !important;
     margin-top: 2px;
   }
 
-  .map-wrapper {
-    border-radius: var(--radius);
+  .map-wrap {
+    border-radius: 8px;
     overflow: hidden;
     box-shadow: var(--shadow);
-    background: var(--color-border);
   }
+
+  .map-wrap iframe { display: block; }
 
   /* ============================================================
-     AREA GUIDE
+     AREA
      ============================================================ */
-  .area-section {
-    background: var(--color-bg);
-  }
-
-  .area-intro {
-    font-size: 0.95rem;
-    color: #5A4535;
-    margin-top: -8px;
-    margin-bottom: 36px;
-  }
-
-  .area-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 16px;
-  }
-
-  @media (min-width: 640px) {
-    .area-grid {
-      grid-template-columns: repeat(3, 1fr);
-    }
-  }
-
   .area-card {
-    background: var(--color-white);
-    border-radius: var(--radius);
-    padding: 28px 24px;
-    box-shadow: var(--shadow);
-    display: flex;
-    gap: 18px;
-    align-items: flex-start;
-    transition: transform var(--transition), box-shadow var(--transition);
+    background: var(--color-bg);
+    border-radius: 8px;
+    padding: 36px 28px;
+    transition: transform var(--transition);
   }
 
-  .area-card:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-hover);
-  }
-
-  .area-icon {
-    font-size: 2rem;
-    flex-shrink: 0;
-    margin-top: 2px;
-  }
+  .area-card:hover { transform: translateY(-3px); }
 
   .area-badge {
     display: inline-block;
-    font-size: 0.7rem;
+    font-size: 0.65rem;
     font-weight: 500;
     letter-spacing: 0.1em;
-    background: var(--color-light);
+    border: 1px solid var(--color-accent);
     color: var(--color-accent);
-    padding: 3px 8px;
-    border-radius: 4px;
-    margin-bottom: 8px;
+    padding: 3px 10px;
+    border-radius: 2px;
+    margin-bottom: 14px;
   }
 
-  .area-content h3 {
+  .area-card h3 {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: var(--color-text);
+  }
+
+  .area-card p {
+    font-size: 0.875rem;
+    line-height: 1.85;
+    color: #5A4535;
+  }
+
+  /* ============================================================
+     SNS / JOURNAL
+     ============================================================ */
+  .sns-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 64px;
+  }
+
+  @media (min-width: 768px) {
+    .sns-grid { grid-template-columns: 1fr 1fr; gap: 80px; }
+  }
+
+  .sns-col { display: flex; flex-direction: column; }
+
+  .sns-head {
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--color-border);
+    margin-bottom: 32px;
+  }
+
+  .sns-platform {
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    font-weight: 500;
+  }
+
+  .note-list { flex: 1; }
+
+  .note-item a {
+    display: block;
+    padding: 22px 0;
+    border-bottom: 1px solid var(--color-border);
+    transition: opacity var(--transition);
+  }
+
+  .note-item a:hover { opacity: 0.65; }
+
+  .note-title {
+    font-family: var(--font-heading);
     font-size: 1rem;
     font-weight: 600;
+    color: var(--color-text);
+    line-height: 1.5;
     margin-bottom: 8px;
   }
 
-  .area-content p {
-    font-size: 0.85rem;
-    line-height: 1.75;
-    color: #5A4535;
+  .note-desc {
+    font-size: 0.825rem;
+    color: rgba(44,32,23,0.6);
+    line-height: 1.7;
+    margin-bottom: 8px;
+  }
+
+  .note-date {
+    font-size: 0.72rem;
+    color: var(--color-accent);
+    letter-spacing: 0.05em;
+  }
+
+  .sns-more {
+    display: inline-block;
+    margin-top: 24px;
+    font-size: 0.825rem;
+    color: var(--color-accent);
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    transition: opacity var(--transition);
+  }
+
+  .sns-more:hover { opacity: 0.65; }
+
+  .sns-empty {
+    padding: 48px 0;
+    font-size: 0.9rem;
+    color: rgba(44,32,23,0.45);
+  }
+
+  .sns-empty a {
+    color: var(--color-accent);
+    font-weight: 500;
+  }
+
+  .ig-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+    padding: 48px 0;
+    flex: 1;
+  }
+
+  .ig-placeholder p {
+    font-size: 0.9rem;
+    color: rgba(44,32,23,0.55);
   }
 
   /* ============================================================
      MINPAKU
      ============================================================ */
-  .minpaku-section {
-    background: var(--color-light);
-  }
-
-  .minpaku-card {
-    background: var(--color-white);
-    border-radius: 16px;
-    padding: 60px 40px;
+  .minpaku-inner {
     max-width: 640px;
-    margin: 0 auto;
-    text-align: center;
-    box-shadow: var(--shadow);
-    position: relative;
   }
 
-  @media (min-width: 768px) {
-    .minpaku-card {
-      padding: 80px 60px;
-    }
-  }
-
-  .coming-soon-badge {
+  .badge {
     display: inline-block;
-    font-size: 0.7rem;
+    font-size: 0.65rem;
     font-weight: 700;
     letter-spacing: 0.2em;
     text-transform: uppercase;
     background: var(--color-accent);
-    color: var(--color-white);
+    color: #ffffff;
     padding: 6px 16px;
-    border-radius: 20px;
-    margin-bottom: 24px;
-  }
-
-  .minpaku-heading {
-    font-family: var(--font-heading);
-    font-size: clamp(1.4rem, 4vw, 2rem);
-    font-weight: 700;
-    line-height: 1.5;
-    margin-bottom: 20px;
+    border-radius: 2px;
   }
 
   .minpaku-text {
-    font-size: 0.9rem;
-    line-height: 2;
+    font-size: 0.95rem;
+    line-height: 2.1;
     color: #5A4535;
-    margin-bottom: 36px;
-    max-width: 480px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .minpaku-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-  }
-
-  .instagram-icon {
-    display: flex;
-    align-items: center;
+    margin-bottom: 40px;
   }
 
   /* ============================================================
      CONTACT
      ============================================================ */
-  .contact-section {
-    background: var(--color-bg);
-  }
-
   .contact-inner {
-    max-width: 640px;
+    max-width: 560px;
   }
 
   .contact-text {
-    font-size: 0.95rem;
-    line-height: 2;
-    color: #5A4535;
-    margin-bottom: 40px;
+    font-size: 1rem;
+    line-height: 2.1;
+    color: rgba(255,255,255,0.85);
+    margin-bottom: 48px;
   }
 
-  .contact-btn {
-    font-size: 1rem;
-    padding: 20px 48px;
-    letter-spacing: 0.04em;
+  /* ============================================================
+     BUTTONS
+     ============================================================ */
+  .btn-outline {
+    display: inline-block;
+    border: 1px solid var(--color-accent);
+    color: var(--color-accent);
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    padding: 14px 40px;
+    border-radius: 2px;
+    transition: background var(--transition), color var(--transition);
+  }
+
+  .btn-outline:hover {
+    background: var(--color-accent);
+    color: #ffffff;
+  }
+
+  .btn-outline-light {
+    display: inline-block;
+    border: 1px solid rgba(255,255,255,0.8);
+    color: #ffffff;
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    padding: 14px 40px;
+    border-radius: 2px;
+    transition: background var(--transition), color var(--transition), border-color var(--transition);
+  }
+
+  .btn-outline-light:hover {
+    background: #ffffff;
+    color: var(--color-text);
+    border-color: #ffffff;
   }
 
   /* ============================================================
@@ -1192,14 +1147,14 @@ const BEHOLD_FEED_ID = '';
      ============================================================ */
   .site-footer {
     background: var(--color-text);
-    padding: 48px 24px;
+    padding: 56px 0;
   }
 
   .footer-inner {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 24px;
+    gap: 32px;
     text-align: center;
   }
 
@@ -1217,176 +1172,26 @@ const BEHOLD_FEED_ID = '';
     display: block;
   }
 
-  .footer-logo {
-    color: var(--color-white);
-  }
-
   .footer-links {
     display: flex;
-    gap: 28px;
+    gap: 32px;
     flex-wrap: wrap;
     justify-content: center;
   }
 
   .footer-links a {
-    font-size: 0.85rem;
-    color: rgba(255, 255, 255, 0.65);
-    letter-spacing: 0.04em;
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    color: rgba(255,255,255,0.55);
     transition: color var(--transition);
   }
 
-  .footer-links a:hover {
-    color: var(--color-white);
-  }
+  .footer-links a:hover { color: #ffffff; }
 
   .footer-copy {
-    font-size: 0.8rem;
-    color: rgba(255, 255, 255, 0.4);
-    letter-spacing: 0.08em;
-  }
-
-  /* ===== SNS SECTION ===== */
-  .sns-section {
-    background: var(--color-white);
-  }
-
-  .sns-section::before {
-    content: '';
-    display: block;
-    text-align: center;
-  }
-
-  .sns-section > .container > .sns-grid > .sns-col:first-child::before {
-    content: 'Latest Posts';
-    display: block;
     font-size: 0.75rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--color-accent);
-    margin-bottom: 40px;
-  }
-
-  .sns-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 64px;
-  }
-
-  @media (min-width: 768px) {
-    .sns-grid {
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
-    }
-  }
-
-  .sns-col {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .sns-header {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 28px;
-    padding-bottom: 16px;
-    border-bottom: 1px solid var(--color-border);
-  }
-
-  .sns-title {
-    font-family: var(--font-heading);
-    font-size: 1.1rem;
-    font-weight: 600;
+    color: rgba(255,255,255,0.3);
     letter-spacing: 0.1em;
-    color: var(--color-text);
-  }
-
-  .note-list {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-    flex: 1;
-  }
-
-  .note-item a {
-    display: block;
-    padding: 20px 0;
-    border-bottom: 1px solid var(--color-border);
-    transition: opacity var(--transition);
-  }
-
-  .note-item a:hover {
-    opacity: 0.7;
-  }
-
-  .note-item-title {
-    font-family: var(--font-heading);
-    font-size: 0.975rem;
-    font-weight: 600;
-    color: var(--color-text);
-    line-height: 1.5;
-    margin-bottom: 6px;
-  }
-
-  .note-item-desc {
-    font-size: 0.825rem;
-    color: rgba(44, 32, 23, 0.65);
-    line-height: 1.6;
-    margin-bottom: 6px;
-  }
-
-  .note-item-date {
-    font-size: 0.75rem;
-    color: var(--color-accent);
-    letter-spacing: 0.03em;
-  }
-
-  .sns-more {
-    display: inline-block;
-    margin-top: 20px;
-    font-size: 0.85rem;
-    color: var(--color-accent);
-    font-weight: 500;
-    letter-spacing: 0.03em;
-    transition: opacity var(--transition);
-  }
-
-  .sns-more:hover {
-    opacity: 0.7;
-  }
-
-  .sns-empty {
-    padding: 40px 0;
-    color: rgba(44, 32, 23, 0.5);
-    font-size: 0.9rem;
-  }
-
-  .sns-empty a {
-    color: var(--color-accent);
-    font-weight: 500;
-  }
-
-  .instagram-placeholder {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 48px 24px;
-    background: var(--color-bg);
-    border-radius: var(--radius);
-    text-align: center;
-    flex: 1;
-    min-height: 200px;
-  }
-
-  .instagram-placeholder p {
-    font-size: 0.875rem;
-    color: rgba(44, 32, 23, 0.55);
-  }
-
-  behold-widget {
-    display: block;
-    width: 100%;
   }
 </style>
 
@@ -1395,7 +1200,7 @@ const BEHOLD_FEED_ID = '';
 )}
 
 <script>
-  // ── Hamburger / Mobile menu ──────────────────────────────
+  // Hamburger
   const hamburger = document.querySelector('.hamburger') as HTMLButtonElement | null;
   const mobileMenu = document.getElementById('mobile-menu');
 
@@ -1406,8 +1211,6 @@ const BEHOLD_FEED_ID = '';
       hamburger.setAttribute('aria-expanded', String(isOpen));
       mobileMenu.setAttribute('aria-hidden', String(!isOpen));
     });
-
-    // Close menu when a nav link is clicked
     mobileMenu.querySelectorAll('a').forEach((link) => {
       link.addEventListener('click', () => {
         mobileMenu.classList.remove('open');
@@ -1418,9 +1221,7 @@ const BEHOLD_FEED_ID = '';
     });
   }
 
-  // ── Fade-in on scroll (IntersectionObserver) ─────────────
-  const fadeEls = document.querySelectorAll('.fade-in');
-
+  // Fade-in
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
@@ -1430,11 +1231,8 @@ const BEHOLD_FEED_ID = '';
         }
       });
     },
-    {
-      threshold: 0.12,
-      rootMargin: '0px 0px -40px 0px',
-    }
+    { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
   );
 
-  fadeEls.forEach((el) => observer.observe(el));
+  document.querySelectorAll('.fade-in').forEach((el) => observer.observe(el));
 </script>

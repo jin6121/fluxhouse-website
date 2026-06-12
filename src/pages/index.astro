@@ -1,0 +1,1201 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="FLUX HOUSE | 南流山のレンタルスペース"
+  description="千葉県流山市・南流山エリアのレンタルスペース。家族の集まり、ワークショップ、撮影など様々な用途でご利用いただけます。"
+  ogUrl="https://fluxhouse.pages.dev/"
+>
+
+  <!-- ===================== HEADER ===================== -->
+  <header class="site-header">
+    <div class="header-inner container">
+      <a href="/" class="logo">FLUX HOUSE</a>
+      <nav class="nav-desktop" aria-label="メインナビゲーション">
+        <a href="#concept">スペース紹介</a>
+        <a href="#pricing">料金</a>
+        <a href="#access">アクセス</a>
+        <a href="#contact">お問い合わせ</a>
+      </nav>
+      <button class="hamburger" aria-label="メニューを開く" aria-expanded="false" aria-controls="mobile-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+      <nav aria-label="モバイルナビゲーション">
+        <a href="#concept" class="mobile-nav-link">スペース紹介</a>
+        <a href="#pricing" class="mobile-nav-link">料金</a>
+        <a href="#access" class="mobile-nav-link">アクセス</a>
+        <a href="#contact" class="mobile-nav-link">お問い合わせ</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===================== HERO ===================== -->
+  <section class="hero">
+    <div class="hero-inner">
+      <p class="hero-label fade-in">Rental Space — Minami-Nagareyama, Chiba</p>
+      <h1 class="hero-heading fade-in fade-in-delay-1">暮らすように、<br />集まる。</h1>
+      <p class="hero-sub fade-in fade-in-delay-2">
+        つながりが育つ家。<br />千葉県流山市・南流山エリアのレンタルスペース
+      </p>
+      <a href="#contact" class="btn-primary hero-cta fade-in fade-in-delay-3">空き状況を問い合わせる</a>
+    </div>
+  </section>
+
+  <!-- ===================== CONCEPT ===================== -->
+  <section class="section concept-section" id="concept">
+    <div class="container">
+      <div class="fade-in">
+        <span class="section-label">Concept</span>
+        <h2 class="section-heading">「暮らし」の延長にある<span>集いの場</span></h2>
+        <div class="divider"></div>
+      </div>
+      <div class="concept-body fade-in fade-in-delay-1">
+        <p>
+          FLUX HOUSEは、ただ「借りる」場所ではありません。まるで友人の家に遊びに来たような、
+          くつろいだ雰囲気の中で人が集まり、語らい、新しい何かが生まれる空間です。
+        </p>
+        <p>
+          「FLUX（流れ）」という名の通り、ここは固定された場所ではなく、人と人が交わることで
+          その都度かたちが変わる、流動的な場所。南流山という土地が持つ、都市と自然が混ざり合う
+          豊かさを背景に、この家がみなさんの日常に溶け込む特別な一日をつくります。
+        </p>
+        <p>
+          子育て世代が多く集まるこのエリアで、家族や仲間と「特別な普通の時間」を過ごしませんか。
+        </p>
+        <a
+          href="https://note.com/jin_sariimama/m/mbada4e66a2a3"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="concept-link"
+        >
+          コンセプトについて詳しく読む →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== USAGE SCENES ===================== -->
+  <section class="section usage-section" id="usage">
+    <div class="container">
+      <div class="fade-in">
+        <span class="section-label">Usage</span>
+        <h2 class="section-heading">こんな<span>シーン</span>で</h2>
+        <div class="divider"></div>
+      </div>
+      <div class="usage-grid">
+        <div class="usage-card fade-in fade-in-delay-1">
+          <div class="usage-icon">🏠</div>
+          <h3>家族の集まり</h3>
+          <p>誕生日会やホームパーティーに。広々とした空間で家族みんながリラックスできます。</p>
+        </div>
+        <div class="usage-card fade-in fade-in-delay-2">
+          <div class="usage-icon">👩‍👧‍👦</div>
+          <h3>友人・ママ友会</h3>
+          <p>子連れでも安心。お子さんが遊ぶ横で、ゆっくりおしゃべりできる場所です。</p>
+        </div>
+        <div class="usage-card fade-in fade-in-delay-3">
+          <div class="usage-icon">📸</div>
+          <h3>ワークショップ・撮影</h3>
+          <p>ハンドメイド教室、料理教室、写真撮影など。温かみのある空間が作品を引き立てます。</p>
+        </div>
+        <div class="usage-card fade-in fade-in-delay-4">
+          <div class="usage-icon">💻</div>
+          <h3>チームのオフサイト</h3>
+          <p>Wi-Fi完備。少人数チームのブレインストーミングや、リモートチームの集合場所に。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SPACE INTRO ===================== -->
+  <section class="section space-section" id="space">
+    <div class="container">
+      <div class="fade-in">
+        <span class="section-label">Space</span>
+        <h2 class="section-heading">スペース<span>紹介</span></h2>
+        <div class="divider"></div>
+      </div>
+      <div class="gallery fade-in fade-in-delay-1">
+        <div class="gallery-item gallery-item--large">
+          <div class="photo-placeholder">
+            <span>リビング・ダイニング</span>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <div class="photo-placeholder photo-placeholder--kitchen">
+            <span>キッチン</span>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <div class="photo-placeholder photo-placeholder--exterior">
+            <span>外観・エントランス</span>
+          </div>
+        </div>
+      </div>
+      <div class="equipment fade-in fade-in-delay-2">
+        <h3 class="equipment-title">設備・備品</h3>
+        <ul class="equipment-list">
+          <li>
+            <span class="equip-icon">📶</span>
+            <span>Wi-Fi（高速インターネット）</span>
+          </li>
+          <li>
+            <span class="equip-icon">🍳</span>
+            <span>キッチン（IHコンロ・調理器具）</span>
+          </li>
+          <li>
+            <span class="equip-icon">❄️</span>
+            <span>冷暖房完備</span>
+          </li>
+          <li>
+            <span class="equip-icon">🚻</span>
+            <span>トイレ</span>
+          </li>
+          <li>
+            <span class="equip-icon">🚗</span>
+            <span>駐車場（要確認）</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PRICING ===================== -->
+  <section class="section pricing-section" id="pricing">
+    <div class="container">
+      <div class="fade-in">
+        <span class="section-label">Pricing</span>
+        <h2 class="section-heading"><span>料金</span>について</h2>
+        <div class="divider"></div>
+      </div>
+      <div class="pricing-grid fade-in fade-in-delay-1">
+        <div class="pricing-card">
+          <p class="pricing-day">平日</p>
+          <p class="pricing-amount">¥3,000<span class="pricing-unit"> / 時</span></p>
+        </div>
+        <div class="pricing-card pricing-card--featured">
+          <p class="pricing-day">土日祝</p>
+          <p class="pricing-amount">¥4,000<span class="pricing-unit"> / 時</span></p>
+        </div>
+      </div>
+      <div class="pricing-notes fade-in fade-in-delay-2">
+        <p>📌 最低利用時間：2時間〜</p>
+        <p class="pricing-disclaimer">※料金は予告なく変更される場合があります</p>
+      </div>
+      <div class="pricing-cta fade-in fade-in-delay-3">
+        <a href="#contact" class="btn-primary">予約・空き状況を確認する</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== ACCESS ===================== -->
+  <section class="section access-section" id="access">
+    <div class="container">
+      <div class="fade-in">
+        <span class="section-label">Access</span>
+        <h2 class="section-heading">アクセス</h2>
+        <div class="divider"></div>
+      </div>
+      <div class="access-layout fade-in fade-in-delay-1">
+        <div class="access-info">
+          <div class="access-item">
+            <span class="access-icon">📍</span>
+            <div>
+              <p class="access-label-text">所在地</p>
+              <p>千葉県流山市南流山</p>
+              <p class="access-note">（詳細住所はお問い合わせください）</p>
+            </div>
+          </div>
+          <div class="access-item">
+            <span class="access-icon">🚃</span>
+            <div>
+              <p class="access-label-text">最寄り駅</p>
+              <p>南流山駅から徒歩圏内</p>
+              <p class="access-note">JR武蔵野線・つくばエクスプレス線</p>
+            </div>
+          </div>
+          <div class="access-item">
+            <span class="access-icon">🚗</span>
+            <div>
+              <p class="access-label-text">お車でのアクセス</p>
+              <p>駐車場についてはお問い合わせください</p>
+            </div>
+          </div>
+        </div>
+        <div class="map-wrapper">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3235.3!2d139.9!3d35.85!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6018836d92ebf82b%3A0x96dab22f96b97e5b!2z5Y2X5rW35bGx5Y-j!5e0!3m2!1sja!2sjp!4v1"
+            width="100%"
+            height="360"
+            style="border:0; border-radius: 12px;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="南流山駅周辺マップ"
+          ></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== AREA GUIDE ===================== -->
+  <section class="section area-section" id="area">
+    <div class="container">
+      <div class="fade-in">
+        <span class="section-label">Area Guide</span>
+        <h2 class="section-heading">周辺<span>スポット</span></h2>
+        <div class="divider"></div>
+        <p class="area-intro">FLUX HOUSEの近くにある、おすすめのスポットをご紹介します。</p>
+      </div>
+      <div class="area-grid fade-in fade-in-delay-1">
+        <div class="area-card">
+          <div class="area-icon">☕</div>
+          <div class="area-content">
+            <span class="area-badge">カフェ</span>
+            <h3>レタンプリュス</h3>
+            <p>地元で人気のおしゃれなカフェ。こだわりのコーヒーとスイーツでひと休み。</p>
+          </div>
+        </div>
+        <div class="area-card">
+          <div class="area-icon">🪑</div>
+          <div class="area-content">
+            <span class="area-badge">ショップ</span>
+            <h3>LIANTIQE</h3>
+            <p>センスあふれるアンティーク家具のショップ。空間づくりのインスピレーションに。</p>
+          </div>
+        </div>
+        <div class="area-card">
+          <div class="area-icon">♨️</div>
+          <div class="area-content">
+            <span class="area-badge">スパ・温浴</span>
+            <h3>スパメッツァおおたか</h3>
+            <p>大型スパ施設でリフレッシュ。サウナ、岩盤浴など充実した施設が揃います。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== MINPAKU PREVIEW ===================== -->
+  <section class="section minpaku-section" id="minpaku">
+    <div class="container">
+      <div class="minpaku-card fade-in">
+        <span class="coming-soon-badge">Coming Soon</span>
+        <h2 class="minpaku-heading">民泊・住宅宿泊事業<br />準備中</h2>
+        <p class="minpaku-text">
+          FLUX HOUSEでは現在、住宅宿泊事業（民泊）の開始に向けて準備を進めています。
+          「泊まる」ことでより深くこの場所と南流山を体験できるよう、準備が整い次第
+          Instagramにてお知らせします。
+        </p>
+        <a
+          href="https://www.instagram.com/fluxhouse_nagareyama/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn-outline minpaku-btn"
+        >
+          <span class="instagram-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+              <circle cx="12" cy="12" r="4"></circle>
+              <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"></circle>
+            </svg>
+          </span>
+          Instagramをフォローする
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CONTACT ===================== -->
+  <section class="section contact-section" id="contact">
+    <div class="container">
+      <div class="contact-inner fade-in">
+        <span class="section-label">Contact</span>
+        <h2 class="section-heading">お問い合わせ</h2>
+        <div class="divider"></div>
+        <p class="contact-text">
+          ご予約・空き状況の確認・その他のご質問は、下記のフォームからお気軽にどうぞ。
+          通常2〜3営業日以内にご返信いたします。
+        </p>
+        <a
+          href="https://forms.gle/MAnhrqk2x8Rn2JWD7"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn-primary contact-btn"
+        >
+          お問い合わせ・空き状況を確認する
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="site-footer">
+    <div class="footer-inner container">
+      <div class="footer-logo">FLUX HOUSE</div>
+      <nav class="footer-links" aria-label="フッターリンク">
+        <a
+          href="https://www.instagram.com/fluxhouse_nagareyama/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >Instagram</a>
+        <a
+          href="https://note.com/jin_sariimama/m/mbada4e66a2a3"
+          target="_blank"
+          rel="noopener noreferrer"
+        >note</a>
+        <a href="#contact">お問い合わせ</a>
+      </nav>
+      <p class="footer-copy">©2026 FLUX HOUSE</p>
+    </div>
+  </footer>
+
+</Layout>
+
+<style>
+  /* ============================================================
+     HEADER
+     ============================================================ */
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(245, 240, 232, 0.88);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+  }
+
+  .logo {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: var(--color-text);
+    transition: color var(--transition);
+  }
+
+  .logo:hover {
+    color: var(--color-accent);
+  }
+
+  .nav-desktop {
+    display: none;
+    gap: 36px;
+  }
+
+  .nav-desktop a {
+    font-size: 0.875rem;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    color: var(--color-text);
+    position: relative;
+    transition: color var(--transition);
+  }
+
+  .nav-desktop a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 1.5px;
+    background: var(--color-accent);
+    transition: width var(--transition);
+  }
+
+  .nav-desktop a:hover {
+    color: var(--color-accent);
+  }
+
+  .nav-desktop a:hover::after {
+    width: 100%;
+  }
+
+  @media (min-width: 768px) {
+    .nav-desktop {
+      display: flex;
+    }
+    .hamburger {
+      display: none;
+    }
+  }
+
+  /* Hamburger */
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 40px;
+    height: 40px;
+    padding: 8px;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  .hamburger span {
+    display: block;
+    width: 22px;
+    height: 1.5px;
+    background: var(--color-text);
+    border-radius: 2px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+
+  .hamburger.open span:nth-child(1) {
+    transform: translateY(6.5px) rotate(45deg);
+  }
+  .hamburger.open span:nth-child(2) {
+    opacity: 0;
+  }
+  .hamburger.open span:nth-child(3) {
+    transform: translateY(-6.5px) rotate(-45deg);
+  }
+
+  /* Mobile menu */
+  .mobile-menu {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+    background: rgba(245, 240, 232, 0.98);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .mobile-menu.open {
+    max-height: 320px;
+  }
+
+  .mobile-menu nav {
+    display: flex;
+    flex-direction: column;
+    padding: 16px 24px 24px;
+    gap: 0;
+  }
+
+  .mobile-nav-link {
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--color-text);
+    padding: 14px 0;
+    border-bottom: 1px solid var(--color-light);
+    letter-spacing: 0.04em;
+    transition: color var(--transition);
+  }
+
+  .mobile-nav-link:last-child {
+    border-bottom: none;
+  }
+
+  .mobile-nav-link:hover {
+    color: var(--color-accent);
+  }
+
+  /* ============================================================
+     HERO
+     ============================================================ */
+  .hero {
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #8B6F47 0%, #2C2017 100%);
+    position: relative;
+    overflow: hidden;
+    padding: 80px 24px;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 60% at 20% 80%, rgba(139, 111, 71, 0.35) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 40% at 80% 20%, rgba(184, 150, 106, 0.2) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .hero-inner {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  .hero-label {
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.65);
+    margin-bottom: 24px;
+  }
+
+  .hero-heading {
+    font-family: var(--font-heading);
+    font-size: clamp(2.6rem, 8vw, 5.5rem);
+    font-weight: 700;
+    color: var(--color-white);
+    line-height: 1.25;
+    letter-spacing: 0.04em;
+    margin-bottom: 28px;
+    text-shadow: 0 2px 32px rgba(0, 0, 0, 0.2);
+  }
+
+  .hero-sub {
+    font-size: clamp(0.95rem, 2.5vw, 1.125rem);
+    color: rgba(255, 255, 255, 0.82);
+    line-height: 1.9;
+    margin-bottom: 48px;
+    letter-spacing: 0.06em;
+  }
+
+  .hero-cta {
+    font-size: 1rem;
+    padding: 18px 44px;
+    background: var(--color-white);
+    color: var(--color-text);
+    border-radius: 4px;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+  }
+
+  .hero-cta:hover {
+    background: var(--color-light);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+  }
+
+  /* ============================================================
+     GENERIC SECTION
+     ============================================================ */
+  .section {
+    padding: var(--section-padding-mobile);
+  }
+
+  @media (min-width: 768px) {
+    .section {
+      padding: var(--section-padding-desktop);
+    }
+  }
+
+  /* ============================================================
+     CONCEPT
+     ============================================================ */
+  .concept-section {
+    background: var(--color-bg);
+  }
+
+  .concept-body p {
+    font-size: 1rem;
+    line-height: 2;
+    color: var(--color-text);
+    margin-bottom: 20px;
+    max-width: 680px;
+  }
+
+  .concept-link {
+    display: inline-block;
+    margin-top: 12px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--color-accent);
+    letter-spacing: 0.04em;
+    border-bottom: 1px solid transparent;
+    transition: border-color var(--transition), color var(--transition);
+  }
+
+  .concept-link:hover {
+    border-color: var(--color-accent);
+    color: var(--color-text);
+  }
+
+  /* ============================================================
+     USAGE SCENES
+     ============================================================ */
+  .usage-section {
+    background: var(--color-light);
+  }
+
+  .usage-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 8px;
+  }
+
+  @media (min-width: 768px) {
+    .usage-grid {
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+  }
+
+  .usage-card {
+    background: var(--color-white);
+    border-radius: var(--radius);
+    padding: 28px 20px;
+    box-shadow: var(--shadow);
+    transition: transform var(--transition), box-shadow var(--transition);
+  }
+
+  .usage-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-hover);
+  }
+
+  .usage-icon {
+    font-size: 2rem;
+    margin-bottom: 16px;
+  }
+
+  .usage-card h3 {
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+
+  .usage-card p {
+    font-size: 0.85rem;
+    line-height: 1.75;
+    color: #5A4535;
+  }
+
+  /* ============================================================
+     SPACE INTRO
+     ============================================================ */
+  .space-section {
+    background: var(--color-bg);
+  }
+
+  .gallery {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 12px;
+    margin-bottom: 48px;
+  }
+
+  @media (min-width: 768px) {
+    .gallery {
+      grid-template-columns: 2fr 1fr 1fr;
+      grid-template-rows: auto;
+      gap: 16px;
+    }
+  }
+
+  .gallery-item--large {
+    grid-column: 1 / -1;
+  }
+
+  @media (min-width: 768px) {
+    .gallery-item--large {
+      grid-column: 1;
+      grid-row: 1;
+    }
+  }
+
+  .photo-placeholder {
+    background: linear-gradient(135deg, #C4A882 0%, #8B6F47 100%);
+    border-radius: var(--radius);
+    aspect-ratio: 4/3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .gallery-item--large .photo-placeholder {
+    aspect-ratio: 16/9;
+  }
+
+  .photo-placeholder span {
+    font-family: var(--font-heading);
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.9);
+    letter-spacing: 0.1em;
+  }
+
+  .photo-placeholder--kitchen {
+    background: linear-gradient(135deg, #A0896B 0%, #6B5038 100%);
+  }
+
+  .photo-placeholder--exterior {
+    background: linear-gradient(135deg, #B8A08A 0%, #7D6048 100%);
+  }
+
+  /* Equipment */
+  .equipment-title {
+    font-family: var(--font-heading);
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+
+  .equipment-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  @media (min-width: 560px) {
+    .equipment-list {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 768px) {
+    .equipment-list {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .equipment-list li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--color-light);
+    border-radius: 8px;
+    padding: 14px 16px;
+    font-size: 0.9rem;
+  }
+
+  .equip-icon {
+    font-size: 1.25rem;
+    flex-shrink: 0;
+  }
+
+  /* ============================================================
+     PRICING
+     ============================================================ */
+  .pricing-section {
+    background: var(--color-text);
+  }
+
+  .pricing-section .section-label {
+    color: var(--color-accent-light);
+  }
+
+  .pricing-section .section-heading {
+    color: var(--color-white);
+  }
+
+  .pricing-section .section-heading span {
+    color: var(--color-accent-light);
+  }
+
+  .pricing-section .divider {
+    background: var(--color-accent);
+  }
+
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    max-width: 560px;
+    margin-bottom: 32px;
+  }
+
+  @media (min-width: 768px) {
+    .pricing-grid {
+      gap: 28px;
+    }
+  }
+
+  .pricing-card {
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: var(--radius);
+    padding: 28px 20px;
+    text-align: center;
+    transition: background var(--transition), border-color var(--transition);
+  }
+
+  .pricing-card--featured {
+    background: rgba(139, 111, 71, 0.3);
+    border-color: var(--color-accent);
+  }
+
+  .pricing-day {
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 12px;
+    font-family: var(--font-body);
+  }
+
+  .pricing-amount {
+    font-family: var(--font-heading);
+    font-size: clamp(1.8rem, 5vw, 2.8rem);
+    font-weight: 700;
+    color: var(--color-white);
+  }
+
+  .pricing-unit {
+    font-size: 1rem;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.65);
+  }
+
+  .pricing-notes {
+    margin-bottom: 40px;
+  }
+
+  .pricing-notes p {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.75);
+    margin-bottom: 6px;
+  }
+
+  .pricing-disclaimer {
+    font-size: 0.8rem !important;
+    color: rgba(255, 255, 255, 0.45) !important;
+  }
+
+  .pricing-cta .btn-primary {
+    background: var(--color-accent);
+  }
+
+  .pricing-cta .btn-primary:hover {
+    background: var(--color-white);
+    color: var(--color-text);
+  }
+
+  /* ============================================================
+     ACCESS
+     ============================================================ */
+  .access-section {
+    background: var(--color-light);
+  }
+
+  .access-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  @media (min-width: 768px) {
+    .access-layout {
+      grid-template-columns: 1fr 1.4fr;
+      gap: 60px;
+      align-items: start;
+    }
+  }
+
+  .access-item {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 28px;
+  }
+
+  .access-item:last-child {
+    margin-bottom: 0;
+  }
+
+  .access-icon {
+    font-size: 1.4rem;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .access-label-text {
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-bottom: 4px;
+  }
+
+  .access-note {
+    font-size: 0.8rem;
+    color: #7A6655;
+    margin-top: 2px;
+  }
+
+  .map-wrapper {
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    background: var(--color-border);
+  }
+
+  /* ============================================================
+     AREA GUIDE
+     ============================================================ */
+  .area-section {
+    background: var(--color-bg);
+  }
+
+  .area-intro {
+    font-size: 0.95rem;
+    color: #5A4535;
+    margin-top: -8px;
+    margin-bottom: 36px;
+  }
+
+  .area-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  @media (min-width: 640px) {
+    .area-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .area-card {
+    background: var(--color-white);
+    border-radius: var(--radius);
+    padding: 28px 24px;
+    box-shadow: var(--shadow);
+    display: flex;
+    gap: 18px;
+    align-items: flex-start;
+    transition: transform var(--transition), box-shadow var(--transition);
+  }
+
+  .area-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-hover);
+  }
+
+  .area-icon {
+    font-size: 2rem;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .area-badge {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    background: var(--color-light);
+    color: var(--color-accent);
+    padding: 3px 8px;
+    border-radius: 4px;
+    margin-bottom: 8px;
+  }
+
+  .area-content h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  .area-content p {
+    font-size: 0.85rem;
+    line-height: 1.75;
+    color: #5A4535;
+  }
+
+  /* ============================================================
+     MINPAKU
+     ============================================================ */
+  .minpaku-section {
+    background: var(--color-light);
+  }
+
+  .minpaku-card {
+    background: var(--color-white);
+    border-radius: 16px;
+    padding: 60px 40px;
+    max-width: 640px;
+    margin: 0 auto;
+    text-align: center;
+    box-shadow: var(--shadow);
+    position: relative;
+  }
+
+  @media (min-width: 768px) {
+    .minpaku-card {
+      padding: 80px 60px;
+    }
+  }
+
+  .coming-soon-badge {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    background: var(--color-accent);
+    color: var(--color-white);
+    padding: 6px 16px;
+    border-radius: 20px;
+    margin-bottom: 24px;
+  }
+
+  .minpaku-heading {
+    font-family: var(--font-heading);
+    font-size: clamp(1.4rem, 4vw, 2rem);
+    font-weight: 700;
+    line-height: 1.5;
+    margin-bottom: 20px;
+  }
+
+  .minpaku-text {
+    font-size: 0.9rem;
+    line-height: 2;
+    color: #5A4535;
+    margin-bottom: 36px;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .minpaku-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .instagram-icon {
+    display: flex;
+    align-items: center;
+  }
+
+  /* ============================================================
+     CONTACT
+     ============================================================ */
+  .contact-section {
+    background: var(--color-bg);
+  }
+
+  .contact-inner {
+    max-width: 640px;
+  }
+
+  .contact-text {
+    font-size: 0.95rem;
+    line-height: 2;
+    color: #5A4535;
+    margin-bottom: 40px;
+  }
+
+  .contact-btn {
+    font-size: 1rem;
+    padding: 20px 48px;
+    letter-spacing: 0.04em;
+  }
+
+  /* ============================================================
+     FOOTER
+     ============================================================ */
+  .site-footer {
+    background: var(--color-text);
+    padding: 48px 24px;
+  }
+
+  .footer-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    text-align: center;
+  }
+
+  @media (min-width: 768px) {
+    .footer-inner {
+      flex-direction: row;
+      justify-content: space-between;
+      text-align: left;
+    }
+  }
+
+  .footer-logo {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: var(--color-white);
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 28px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .footer-links a {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.65);
+    letter-spacing: 0.04em;
+    transition: color var(--transition);
+  }
+
+  .footer-links a:hover {
+    color: var(--color-white);
+  }
+
+  .footer-copy {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.4);
+    letter-spacing: 0.08em;
+  }
+</style>
+
+<script>
+  // ── Hamburger / Mobile menu ──────────────────────────────
+  const hamburger = document.querySelector('.hamburger') as HTMLButtonElement | null;
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  if (hamburger && mobileMenu) {
+    hamburger.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.toggle('open');
+      hamburger.classList.toggle('open', isOpen);
+      hamburger.setAttribute('aria-expanded', String(isOpen));
+      mobileMenu.setAttribute('aria-hidden', String(!isOpen));
+    });
+
+    // Close menu when a nav link is clicked
+    mobileMenu.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('open');
+        hamburger.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+        mobileMenu.setAttribute('aria-hidden', 'true');
+      });
+    });
+  }
+
+  // ── Fade-in on scroll (IntersectionObserver) ─────────────
+  const fadeEls = document.querySelectorAll('.fade-in');
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    {
+      threshold: 0.12,
+      rootMargin: '0px 0px -40px 0px',
+    }
+  );
+
+  fadeEls.forEach((el) => observer.observe(el));
+</script>

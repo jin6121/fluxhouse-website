@@ -110,32 +110,32 @@ const BEHOLD_FEED_ID = '';
       </div>
       <div class="grid-3 grid-usage">
         <div class="usage-card fade-in">
-          <div class="usage-icon">🏠</div>
+          <span class="usage-num">01</span>
           <h3>家族の集まり</h3>
           <p>誕生日会やホームパーティーに。広々とした空間で家族みんながリラックスできます。</p>
         </div>
         <div class="usage-card fade-in">
-          <div class="usage-icon">👩‍👧‍👦</div>
+          <span class="usage-num">02</span>
           <h3>友人・ママ友会</h3>
           <p>子連れでも安心。お子さんが遊ぶ横でゆっくりおしゃべりできる場所です。</p>
         </div>
         <div class="usage-card fade-in">
-          <div class="usage-icon">📸</div>
+          <span class="usage-num">03</span>
           <h3>ワークショップ・撮影</h3>
           <p>ハンドメイド教室、料理教室、写真撮影など。温かみのある空間が作品を引き立てます。</p>
         </div>
         <div class="usage-card fade-in">
-          <div class="usage-icon">💻</div>
+          <span class="usage-num">04</span>
           <h3>チームのオフサイト</h3>
           <p>Wi-Fi完備。少人数チームのブレインストーミングや合宿に。</p>
         </div>
         <div class="usage-card fade-in">
-          <div class="usage-icon">🎂</div>
+          <span class="usage-num">05</span>
           <h3>記念日・お祝い</h3>
           <p>プライベートな空間で大切な記念日を。キッチンを使った手料理でおもてなし。</p>
         </div>
         <div class="usage-card fade-in">
-          <div class="usage-icon">🌿</div>
+          <span class="usage-num">06</span>
           <h3>静かな一人時間</h3>
           <p>集中したい作業や読書、ひとり映画など。静かで落ち着いた時間が過ごせます。</p>
         </div>
@@ -162,11 +162,11 @@ const BEHOLD_FEED_ID = '';
       <div class="equipment fade-in">
         <h3 class="equip-heading">設備・備品</h3>
         <ul class="equip-list">
-          <li><span class="equip-icon">📶</span>Wi-Fi（高速インターネット）</li>
-          <li><span class="equip-icon">🍳</span>キッチン（IHコンロ・調理器具）</li>
-          <li><span class="equip-icon">❄️</span>冷暖房完備</li>
-          <li><span class="equip-icon">🚻</span>トイレ</li>
-          <li><span class="equip-icon">🚗</span>駐車場（要確認）</li>
+          <li>Wi-Fi（高速インターネット）</li>
+          <li>キッチン（IHコンロ・調理器具）</li>
+          <li>冷暖房完備</li>
+          <li>トイレ</li>
+          <li>駐車場（要確認）</li>
         </ul>
       </div>
     </div>
@@ -234,14 +234,8 @@ const BEHOLD_FEED_ID = '';
 
       <!-- アクセス情報 -->
       <ul class="access-info-list fade-in">
-        <li>
-          <span class="access-info-icon">🚃</span>
-          つくばエクスプレス・JR武蔵野線「南流山駅」から徒歩15分・車5分
-        </li>
-        <li>
-          <span class="access-info-icon">🚗</span>
-          お車でお越しの場合は駐車場についてお問い合わせください
-        </li>
+        <li>つくばエクスプレス・JR武蔵野線「南流山駅」から徒歩15分・車5分</li>
+        <li>お車でお越しの場合は駐車場についてお問い合わせください</li>
       </ul>
 
       <!-- 周辺地図 -->
@@ -403,12 +397,12 @@ const BEHOLD_FEED_ID = '';
      SECTION BASE
      ============================================================ */
   .section {
-    padding: 60px 0;
+    padding: 80px 0;
   }
 
   @media (min-width: 768px) {
     .section {
-      padding: 80px 0;
+      padding: 130px 0;
     }
   }
 
@@ -423,9 +417,9 @@ const BEHOLD_FEED_ID = '';
     font-family: var(--font-body);
     font-size: 0.7rem;
     font-weight: 500;
-    letter-spacing: 0.3em;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: var(--color-accent);
+    color: #8c8c8c;
     margin-bottom: 10px;
   }
 
@@ -666,7 +660,7 @@ const BEHOLD_FEED_ID = '';
   .text-body p {
     font-size: 1.05rem;
     line-height: 2.1;
-    color: var(--color-text);
+    color: #4a4a4a;
     margin-bottom: 24px;
   }
 
@@ -713,9 +707,15 @@ const BEHOLD_FEED_ID = '';
     box-shadow: var(--shadow-hover);
   }
 
-  .usage-icon {
-    font-size: 2.2rem;
+  .usage-num {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 2rem;
+    font-weight: 300;
+    color: #e0e0e0;
+    line-height: 1;
     margin-bottom: 20px;
+    letter-spacing: 0.05em;
   }
 
   .usage-card h3 {
@@ -815,17 +815,14 @@ const BEHOLD_FEED_ID = '';
   }
 
   .equip-list li {
-    display: flex;
-    align-items: center;
-    gap: 10px;
     background: var(--color-bg);
     border-radius: 6px;
+    border-left: 3px solid var(--color-accent);
     padding: 14px 18px;
-    font-size: 0.9rem;
-    color: var(--color-text);
+    font-size: 0.875rem;
+    color: #4a4a4a;
+    line-height: 1.6;
   }
-
-  .equip-icon { font-size: 1.2rem; }
 
   /* ============================================================
      PRICING
@@ -949,18 +946,19 @@ const BEHOLD_FEED_ID = '';
   }
 
   .access-info-list li {
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
     font-size: 0.95rem;
-    line-height: 1.7;
-    color: var(--color-text);
+    line-height: 1.9;
+    color: #4a4a4a;
+    padding-left: 1em;
+    position: relative;
   }
 
-  .access-info-icon {
-    font-size: 1.1rem;
-    flex-shrink: 0;
-    margin-top: 2px;
+  .access-info-list li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--color-accent);
+    font-weight: 400;
   }
 
   .area-map-wrap {
@@ -1173,12 +1171,13 @@ const BEHOLD_FEED_ID = '';
     letter-spacing: 0.1em;
     padding: 14px 40px;
     border-radius: 2px;
-    transition: background var(--transition), color var(--transition);
+    transition: background var(--transition), color var(--transition), transform var(--transition);
   }
 
   .btn-outline:hover {
     background: var(--color-accent);
     color: #ffffff;
+    transform: translateY(-2px);
   }
 
   .btn-outline-light {

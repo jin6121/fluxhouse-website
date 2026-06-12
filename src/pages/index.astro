@@ -243,6 +243,15 @@ const BEHOLD_FEED_ID = '';
           お車でお越しの場合は駐車場についてお問い合わせください
         </li>
       </ul>
+
+      <!-- 周辺地図 -->
+      <div class="area-map-wrap fade-in">
+        <img
+          src="/FLUX HOUSE minaminagareyama.png"
+          alt="南流山エリアマップ"
+          class="area-map-img"
+        />
+      </div>
     </div>
   </section>
 
@@ -952,6 +961,19 @@ const BEHOLD_FEED_ID = '';
     font-size: 1.1rem;
     flex-shrink: 0;
     margin-top: 2px;
+  }
+
+  .area-map-wrap {
+    max-width: 900px;
+    margin: 40px auto 0;
+  }
+
+  .area-map-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
   }
 
   /* ============================================================

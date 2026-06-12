@@ -11,7 +11,9 @@ import Layout from '../layouts/Layout.astro';
   <!-- ===================== HEADER ===================== -->
   <header class="site-header">
     <div class="header-inner container">
-      <a href="/" class="logo">FLUX HOUSE</a>
+      <a href="/" class="logo">
+        <img src="/fluxhouse_logo_yoko_0828.png" alt="FLUX HOUSE" class="logo-img" />
+      </a>
       <nav class="nav-desktop" aria-label="メインナビゲーション">
         <a href="#concept">スペース紹介</a>
         <a href="#pricing">料金</a>
@@ -337,7 +339,9 @@ import Layout from '../layouts/Layout.astro';
   <!-- ===================== FOOTER ===================== -->
   <footer class="site-footer">
     <div class="footer-inner container">
-      <div class="footer-logo">FLUX HOUSE</div>
+      <div class="footer-logo">
+        <img src="/fluxhouse_logo_tate_white.png" alt="FLUX HOUSE" class="footer-logo-img" />
+      </div>
       <nav class="footer-links" aria-label="フッターリンク">
         <a
           href="https://www.instagram.com/fluxhouse_nagareyama/"
@@ -379,12 +383,14 @@ import Layout from '../layouts/Layout.astro';
   }
 
   .logo {
-    font-family: var(--font-heading);
-    font-size: 1.2rem;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    color: var(--color-text);
-    transition: color var(--transition);
+    display: flex;
+    align-items: center;
+  }
+
+  .logo-img {
+    height: 36px;
+    width: auto;
+    display: block;
   }
 
   .logo:hover {
@@ -1122,11 +1128,13 @@ import Layout from '../layouts/Layout.astro';
     }
   }
 
+  .footer-logo-img {
+    height: 80px;
+    width: auto;
+    display: block;
+  }
+
   .footer-logo {
-    font-family: var(--font-heading);
-    font-size: 1.1rem;
-    font-weight: 700;
-    letter-spacing: 0.12em;
     color: var(--color-white);
   }
 

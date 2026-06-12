@@ -220,13 +220,15 @@ const BEHOLD_FEED_ID = '';
           id="map-img-ja"
           src="/access-map-japanese.png"
           alt="アクセスマップ（日本語）"
-          class="map-image map-image--visible"
+          class="map-image"
+          style="display:block;"
         />
         <img
           id="map-img-en"
           src="/access-map-english.png"
           alt="Access map (English)"
           class="map-image"
+          style="display:none;"
         />
       </div>
 
@@ -1261,11 +1263,11 @@ const BEHOLD_FEED_ID = '';
       btn.classList.add('map-btn--active');
       btn.setAttribute('aria-pressed', 'true');
       if (lang === 'ja') {
-        mapImgJa?.classList.add('map-image--visible');
-        mapImgEn?.classList.remove('map-image--visible');
+        if (mapImgJa) (mapImgJa as HTMLElement).style.display = 'block';
+        if (mapImgEn) (mapImgEn as HTMLElement).style.display = 'none';
       } else {
-        mapImgEn?.classList.add('map-image--visible');
-        mapImgJa?.classList.remove('map-image--visible');
+        if (mapImgEn) (mapImgEn as HTMLElement).style.display = 'block';
+        if (mapImgJa) (mapImgJa as HTMLElement).style.display = 'none';
       }
     });
   });

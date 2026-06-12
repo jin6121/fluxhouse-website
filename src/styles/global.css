@@ -18,6 +18,9 @@
   --shadow: 0 4px 24px rgba(44, 32, 23, 0.08);
   --shadow-hover: 0 8px 40px rgba(44, 32, 23, 0.14);
   --transition: 0.3s ease;
+  --bg-primary: #FFFFFF;
+  --bg-secondary: #F5F0E8;
+  --bg-dark: #2C2017;
 }
 
 /* ============================================================

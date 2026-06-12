@@ -74,7 +74,7 @@ const BEHOLD_FEED_ID = '';
   </section>
 
   <!-- ========== CONCEPT ========== -->
-  <section class="section bg-white" id="concept">
+  <section class="section bg-secondary" id="concept">
     <div class="container layout-text">
       <div class="sec-title fade-in">
         <p class="sec-en">CONCEPT</p>
@@ -102,7 +102,7 @@ const BEHOLD_FEED_ID = '';
   </section>
 
   <!-- ========== USAGE ========== -->
-  <section class="section bg-beige" id="usage">
+  <section class="section bg-primary" id="usage">
     <div class="container">
       <div class="sec-title fade-in">
         <p class="sec-en">USAGE</p>
@@ -144,7 +144,7 @@ const BEHOLD_FEED_ID = '';
   </section>
 
   <!-- ========== SPACE ========== -->
-  <section class="section bg-white" id="space">
+  <section class="section bg-secondary" id="space">
     <div class="container">
       <div class="sec-title fade-in">
         <p class="sec-en">SPACE</p>
@@ -173,11 +173,11 @@ const BEHOLD_FEED_ID = '';
   </section>
 
   <!-- ========== PRICING ========== -->
-  <section class="section bg-dark" id="pricing">
+  <section class="section bg-primary" id="pricing">
     <div class="container">
       <div class="sec-title fade-in">
-        <p class="sec-en sec-en--light">PRICING</p>
-        <h2 class="sec-ja sec-ja--light">料金</h2>
+        <p class="sec-en">PRICING</p>
+        <h2 class="sec-ja">料金</h2>
       </div>
       <div class="pricing-wrap fade-in">
         <div class="pricing-card">
@@ -195,13 +195,13 @@ const BEHOLD_FEED_ID = '';
       </ul>
       <p class="pricing-disclaimer fade-in">※料金は予告なく変更される場合があります</p>
       <div class="fade-in" style="margin-top:48px;">
-        <a href="#contact" class="btn-outline-light">予約・空き状況を確認する</a>
+        <a href="#contact" class="btn-outline">予約・空き状況を確認する</a>
       </div>
     </div>
   </section>
 
   <!-- ========== ACCESS ========== -->
-  <section class="section bg-beige" id="access">
+  <section class="section bg-secondary" id="access">
     <div class="container">
       <div class="sec-title fade-in">
         <p class="sec-en">ACCESS</p>
@@ -247,7 +247,7 @@ const BEHOLD_FEED_ID = '';
   </section>
 
   <!-- ========== AREA GUIDE ========== -->
-  <section class="section bg-white" id="area">
+  <section class="section bg-primary" id="area">
     <div class="container">
       <div class="sec-title fade-in">
         <p class="sec-en">LOCAL EXPERIENCE</p>
@@ -274,7 +274,7 @@ const BEHOLD_FEED_ID = '';
   </section>
 
   <!-- ========== SNS / NOTE ========== -->
-  <section class="section bg-beige" id="sns">
+  <section class="section bg-secondary" id="sns">
     <div class="container">
       <div class="sec-title fade-in">
         <p class="sec-en">JOURNAL</p>
@@ -326,7 +326,7 @@ const BEHOLD_FEED_ID = '';
   </section>
 
   <!-- ========== MINPAKU ========== -->
-  <section class="section bg-white" id="minpaku">
+  <section class="section bg-dark" id="minpaku">
     <div class="container">
       <div class="minpaku-inner fade-in">
         <span class="badge">Coming Soon</span>
@@ -347,18 +347,18 @@ const BEHOLD_FEED_ID = '';
   </section>
 
   <!-- ========== CONTACT ========== -->
-  <section class="section bg-accent" id="contact">
+  <section class="section bg-primary" id="contact">
     <div class="container">
       <div class="contact-inner fade-in">
         <div class="sec-title">
-          <p class="sec-en sec-en--light">CONTACT</p>
-          <h2 class="sec-ja sec-ja--light">お問い合わせ</h2>
+          <p class="sec-en">CONTACT</p>
+          <h2 class="sec-ja">お問い合わせ</h2>
         </div>
         <p class="contact-text">
           ご予約・空き状況の確認・その他のご質問は、<br />下記のフォームからお気軽にどうぞ。<br />
           通常2〜3営業日以内にご返信いたします。
         </p>
-        <a href="https://forms.gle/MAnhrqk2x8Rn2JWD7" target="_blank" rel="noopener noreferrer" class="btn-outline-light">
+        <a href="https://forms.gle/MAnhrqk2x8Rn2JWD7" target="_blank" rel="noopener noreferrer" class="btn-outline">
           お問い合わせ・空き状況を確認する
         </a>
       </div>
@@ -386,21 +386,20 @@ const BEHOLD_FEED_ID = '';
   /* ============================================================
      LAYOUT BACKGROUNDS
      ============================================================ */
-  .bg-white  { background: #ffffff; }
-  .bg-beige  { background: var(--color-bg); }
-  .bg-dark   { background: var(--color-text); }
-  .bg-accent { background: var(--color-accent); }
+  .bg-primary   { background: var(--bg-primary); }
+  .bg-secondary { background: var(--bg-secondary); }
+  .bg-dark      { background: var(--bg-dark); }
 
   /* ============================================================
      SECTION BASE
      ============================================================ */
   .section {
-    padding: 80px 0;
+    padding: 60px 0;
   }
 
   @media (min-width: 768px) {
     .section {
-      padding: 120px 0;
+      padding: 80px 0;
     }
   }
 
@@ -831,21 +830,22 @@ const BEHOLD_FEED_ID = '';
   }
 
   .pricing-card {
-    border: 1px solid rgba(255,255,255,0.15);
+    border: 1px solid var(--color-border);
     border-radius: 8px;
-    padding: 32px 20px;
+    padding: 40px 28px;
     text-align: center;
+    background: var(--bg-secondary);
   }
 
   .pricing-card--accent {
     border-color: var(--color-accent);
-    background: rgba(139,111,71,0.25);
+    background: #ffffff;
   }
 
   .pricing-label {
     font-size: 0.75rem;
     letter-spacing: 0.15em;
-    color: rgba(255,255,255,0.55);
+    color: var(--color-accent);
     margin-bottom: 14px;
   }
 
@@ -853,13 +853,13 @@ const BEHOLD_FEED_ID = '';
     font-family: var(--font-heading);
     font-size: clamp(1.8rem, 5vw, 2.6rem);
     font-weight: 700;
-    color: #ffffff;
+    color: var(--color-text);
   }
 
   .pricing-price span {
     font-size: 0.95rem;
     font-weight: 400;
-    color: rgba(255,255,255,0.55);
+    color: #7A6655;
   }
 
   .pricing-notes {
@@ -869,18 +869,18 @@ const BEHOLD_FEED_ID = '';
 
   .pricing-notes li {
     font-size: 0.9rem;
-    color: rgba(255,255,255,0.7);
+    color: #5A4535;
     line-height: 2;
   }
 
   .pricing-notes li::before {
     content: '— ';
-    color: var(--color-accent-light);
+    color: var(--color-accent);
   }
 
   .pricing-disclaimer {
     font-size: 0.78rem;
-    color: rgba(255,255,255,0.35);
+    color: #9A8878;
   }
 
   /* ============================================================
@@ -1113,8 +1113,16 @@ const BEHOLD_FEED_ID = '';
   .minpaku-text {
     font-size: 0.95rem;
     line-height: 2.1;
-    color: #5A4535;
+    color: rgba(255,255,255,0.75);
     margin-bottom: 40px;
+  }
+
+  #minpaku .sec-ja {
+    color: #ffffff;
+  }
+
+  #minpaku .sec-en {
+    color: rgba(255,255,255,0.5);
   }
 
   /* ============================================================
@@ -1127,7 +1135,7 @@ const BEHOLD_FEED_ID = '';
   .contact-text {
     font-size: 1rem;
     line-height: 2.1;
-    color: rgba(255,255,255,0.85);
+    color: #5A4535;
     margin-bottom: 48px;
   }
 

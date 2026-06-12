@@ -1,0 +1,316 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="FLUX LOCAL | 地域の方へ — 南流山のレンタルスペース"
+  description="千葉県流山市・南流山エリアのレンタルスペース。地域の方の集まり、ワークショップ、撮影など様々な用途でご利用いただけます。"
+  ogUrl="https://fluxhouse-website.pages.dev/local"
+>
+
+<header class="site-header">
+  <div class="header-inner container">
+    <a href="/" class="logo">
+      <img src="/fluxhouse_logo_yoko_trimmed.png" alt="FLUX HOUSE" class="logo-img" />
+    </a>
+    <nav class="nav-desktop">
+      <a href="/#pricing">料金</a>
+      <a href="/#access">アクセス</a>
+      <a href="/#contact">お問い合わせ</a>
+      <a href="/" class="nav-back">← メインサイトへ</a>
+    </nav>
+  </div>
+</header>
+
+<section class="local-hero">
+  <div class="container">
+    <p class="local-label">FLUX LOCAL</p>
+    <h1 class="local-heading">地域の方へ</h1>
+    <p class="local-sub">南流山・流山市近郊の方のための、時間貸しレンタルスペース</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="local-intro">
+      <p>
+        FLUX HOUSEでは、近隣にお住まいの方向けに、平日昼間を中心とした時間貸しプランをご用意しています。
+        家族の集まり、ママ友会、誕生日会、子ども向けワークショップなど、気軽に「よそのリビング」としてお使いください。
+      </p>
+    </div>
+
+    <div class="usage-grid">
+      <div class="usage-card">
+        <p class="usage-num">01</p>
+        <h3>家族の集まり</h3>
+        <p>誕生日会やホームパーティーに。広々とした空間で家族みんながリラックスできます。</p>
+      </div>
+      <div class="usage-card">
+        <p class="usage-num">02</p>
+        <h3>友人・ママ友会</h3>
+        <p>子連れでも安心。お子さんが遊ぶ横でゆっくりおしゃべりできる場所です。</p>
+      </div>
+      <div class="usage-card">
+        <p class="usage-num">03</p>
+        <h3>ワークショップ</h3>
+        <p>ハンドメイド教室、料理教室など。温かみのある空間が作品を引き立てます。</p>
+      </div>
+      <div class="usage-card">
+        <p class="usage-num">04</p>
+        <h3>記念日・お祝い</h3>
+        <p>プライベートな空間で大切な記念日を。キッチンを使った手料理でおもてなし。</p>
+      </div>
+    </div>
+
+    <div class="local-pricing">
+      <h2 class="local-pricing-heading">料金（平日昼間プラン）</h2>
+      <div class="price-row">
+        <span class="price-label">平日</span>
+        <span class="price-val">¥3,000 / 時（最低2時間〜）</span>
+      </div>
+      <div class="price-row">
+        <span class="price-label">土日祝</span>
+        <span class="price-val">¥4,000 / 時（最低2時間〜）</span>
+      </div>
+      <p class="price-note">詳細・空き状況はお問い合わせください。</p>
+    </div>
+
+    <div style="margin-top: 56px;">
+      <a href="https://forms.gle/MAnhrqk2x8Rn2JWD7" target="_blank" rel="noopener noreferrer" class="btn-outline">
+        空き状況を問い合わせる
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer class="local-footer">
+  <div class="container">
+    <a href="/" class="footer-back">← FLUX HOUSE メインサイトへ</a>
+    <p class="footer-copy">©2026 FLUX HOUSE / 合同会社きいろのもり</p>
+  </div>
+</footer>
+
+</Layout>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(255,255,255,0.94);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(0,0,0,0.07);
+  }
+
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 80px;
+  }
+
+  .logo { display: flex; align-items: center; }
+
+  .logo-img {
+    height: 36px;
+    width: auto;
+    display: block;
+    mix-blend-mode: multiply;
+  }
+
+  .nav-desktop {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+  }
+
+  .nav-desktop a {
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    color: #1a1a1a;
+    transition: color 0.3s ease;
+  }
+
+  .nav-desktop a:hover { color: #8B6F47; }
+
+  .nav-back {
+    font-size: 0.75rem !important;
+    color: #999 !important;
+  }
+
+  .local-hero {
+    padding: 96px 0 80px;
+    background: #F7F4EF;
+  }
+
+  .local-label {
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: #8B6F47;
+    margin-bottom: 16px;
+    font-family: var(--font-body);
+  }
+
+  .local-heading {
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 6vw, 3.5rem);
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 20px;
+  }
+
+  .local-sub {
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.8;
+  }
+
+  .section {
+    padding: 96px 0;
+  }
+
+  .local-intro {
+    max-width: 640px;
+    margin-bottom: 64px;
+  }
+
+  .local-intro p {
+    font-size: 1rem;
+    line-height: 2.1;
+    color: #444;
+  }
+
+  .usage-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+    margin-bottom: 80px;
+  }
+
+  @media (min-width: 640px) {
+    .usage-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (min-width: 900px) {
+    .usage-grid { grid-template-columns: repeat(4, 1fr); }
+  }
+
+  .usage-card {
+    padding: 36px 28px;
+    background: #F7F4EF;
+    border-radius: 4px;
+  }
+
+  .usage-num {
+    font-size: 1.8rem;
+    font-weight: 300;
+    color: #ddd;
+    margin-bottom: 16px;
+    font-family: var(--font-body);
+    line-height: 1;
+  }
+
+  .usage-card h3 {
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin-bottom: 10px;
+  }
+
+  .usage-card p {
+    font-size: 0.85rem;
+    line-height: 1.85;
+    color: #555;
+  }
+
+  .local-pricing {
+    max-width: 480px;
+  }
+
+  .local-pricing-heading {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin-bottom: 28px;
+  }
+
+  .price-row {
+    display: flex;
+    gap: 32px;
+    padding: 16px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.07);
+    align-items: baseline;
+  }
+
+  .price-label {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: #8B6F47;
+    width: 4em;
+    flex-shrink: 0;
+  }
+
+  .price-val {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #1a1a1a;
+  }
+
+  .price-note {
+    font-size: 0.8rem;
+    color: #888;
+    margin-top: 16px;
+  }
+
+  .btn-outline {
+    display: inline-block;
+    border: 1px solid #8B6F47;
+    color: #8B6F47;
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    padding: 16px 48px;
+    border-radius: 2px;
+    transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
+  }
+
+  .btn-outline:hover {
+    background: #8B6F47;
+    color: #ffffff;
+    transform: translateY(-2px);
+  }
+
+  .local-footer {
+    background: #1a1a1a;
+    padding: 40px 0;
+  }
+
+  .local-footer .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .footer-back {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.45);
+    letter-spacing: 0.05em;
+    transition: color 0.3s ease;
+  }
+
+  .footer-back:hover { color: #ffffff; }
+
+  .footer-copy {
+    font-size: 0.72rem;
+    color: rgba(255,255,255,0.2);
+    letter-spacing: 0.08em;
+  }
+</style>

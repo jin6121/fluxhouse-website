@@ -1,0 +1,143 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="キャンセルポリシー | FLUX HOUSE"
+  description="FLUX HOUSEのキャンセルポリシー"
+>
+
+<header class="simple-header">
+  <div class="container">
+    <a href="/" class="back-link">← FLUX HOUSE トップへ</a>
+  </div>
+</header>
+
+<main class="container legal-page">
+  <h1>キャンセルポリシー</h1>
+  <!-- TODO: キャンセルポリシーの詳細を記載 -->
+  <p class="placeholder-note">このページは準備中です。内容は順次追加いたします。</p>
+
+  <div class="policy-content">
+    <h2>キャンセル料について</h2>
+    <!-- TODO: キャンセル料の詳細を決定して記載 -->
+    <table class="legal-table">
+      <tbody>
+        <tr>
+          <th>キャンセル時期</th>
+          <th>キャンセル料</th>
+        </tr>
+        <tr>
+          <td>利用日の8日前以前</td>
+          <td><!-- TODO --> 要確認</td>
+        </tr>
+        <tr>
+          <td>利用日の7日前〜前日</td>
+          <td><!-- TODO --> 要確認</td>
+        </tr>
+        <tr>
+          <td>利用当日</td>
+          <td><!-- TODO --> 要確認</td>
+        </tr>
+        <tr>
+          <td>無断キャンセル</td>
+          <td><!-- TODO --> 要確認</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>その他</h2>
+    <p>天災や不可抗力による中止の場合のキャンセル料については、個別にご相談いたします。</p>
+    <!-- TODO: 詳細ポリシーを追記 -->
+  </div>
+</main>
+
+<footer class="simple-footer">
+  <div class="container">
+    <p>©2026 FLUX HOUSE / 合同会社きいろのもり</p>
+  </div>
+</footer>
+
+</Layout>
+
+<style>
+  .simple-header {
+    border-bottom: 1px solid rgba(0,0,0,0.07);
+    padding: 20px 0;
+  }
+
+  .back-link {
+    font-size: 0.85rem;
+    color: #8B6F47;
+    letter-spacing: 0.05em;
+  }
+
+  .legal-page {
+    padding: 80px 24px;
+    max-width: 760px;
+  }
+
+  h1 {
+    font-family: var(--font-heading);
+    font-size: clamp(1.4rem, 4vw, 2rem);
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 48px;
+  }
+
+  h2 {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin: 48px 0 20px;
+  }
+
+  .placeholder-note {
+    background: #FFF8E7;
+    border-left: 3px solid #F0C040;
+    padding: 16px 20px;
+    font-size: 0.875rem;
+    color: #555;
+    margin-bottom: 48px;
+  }
+
+  .policy-content p {
+    font-size: 0.9rem;
+    line-height: 1.9;
+    color: #444;
+  }
+
+  .legal-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.875rem;
+  }
+
+  .legal-table th,
+  .legal-table td {
+    text-align: left;
+    padding: 14px 20px;
+    border-bottom: 1px solid rgba(0,0,0,0.07);
+    border-right: 1px solid rgba(0,0,0,0.07);
+    line-height: 1.7;
+    color: #333;
+  }
+
+  .legal-table th {
+    font-weight: 600;
+    color: #555;
+    background: rgba(0,0,0,0.02);
+  }
+
+  .simple-footer {
+    background: #1a1a1a;
+    padding: 32px 0;
+  }
+
+  .simple-footer p {
+    font-size: 0.72rem;
+    color: rgba(255,255,255,0.3);
+    letter-spacing: 0.08em;
+  }
+</style>

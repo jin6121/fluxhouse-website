@@ -1,0 +1,1332 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// note RSS feed
+interface NoteItem {
+  title: string;
+  link: string;
+  pubDate: string;
+  description: string;
+}
+
+let noteItems: NoteItem[] = [];
+try {
+  const res = await fetch('https://note.com/jin_sariimama/m/mbada4e66a2a3/rss');
+  const xml = await res.text();
+  const items = xml.match(/<item>([\s\S]*?)<\/item>/g) || [];
+  noteItems = items.slice(0, 3).map((item) => {
+    const title = item.match(/<title><!\[CDATA\[(.*?)\]\]><\/title>/)?.[1] || item.match(/<title>(.*?)<\/title>/)?.[1] || '';
+    const link = item.match(/<link>(.*?)<\/link>/)?.[1] || '';
+    const pubDate = item.match(/<pubDate>(.*?)<\/pubDate>/)?.[1] || '';
+    const description = item.match(/<description><!\[CDATA\[(.*?)\]\]><\/description>/)?.[1] || item.match(/<description>(.*?)<\/description>/)?.[1] || '';
+    const date = pubDate ? new Date(pubDate).toLocaleDateString('ja-JP', { year: 'numeric', month: 'long', day: 'numeric' }) : '';
+    const plainDesc = description.replace(/<[^>]+>/g, '').slice(0, 80);
+    return { title, link, pubDate: date, description: plainDesc };
+  });
+} catch (e) {
+  noteItems = [];
+}
+
+const BEHOLD_FEED_ID = '';
+---
+
+<Layout
+  title="FLUX HOUSE | 南流山のレンタルスペース"
+  description="千葉県流山市・南流山エリアのレンタルスペース。家族の集まり、ワークショップ、撮影など様々な用途でご利用いただけます。"
+  ogUrl="https://fluxhouse-website.pages.dev/"
+>
+
+  <!-- ========== HEADER ========== -->
+  <header class="site-header">
+    <div class="header-inner container">
+      <a href="/" class="logo">
+        <img src="/fluxhouse_logo_yoko_trimmed.png" alt="FLUX HOUSE" class="logo-img" />
+      </a>
+      <nav class="nav-desktop" aria-label="メインナビゲーション">
+        <a href="#concept">SPACE</a>
+        <a href="#pricing">PRICE</a>
+        <a href="#access">ACCESS</a>
+        <a href="#contact">CONTACT</a>
+      </nav>
+      <button class="hamburger" aria-label="メニューを開く" aria-expanded="false" aria-controls="mobile-menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+      <nav>
+        <a href="#concept" class="mobile-nav-link">SPACE</a>
+        <a href="#pricing" class="mobile-nav-link">PRICE</a>
+        <a href="#access" class="mobile-nav-link">ACCESS</a>
+        <a href="#contact" class="mobile-nav-link">CONTACT</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ========== HERO ========== -->
+  <section class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-inner">
+      <p class="hero-sub fade-in">Rental Space — Minami-Nagareyama, Chiba</p>
+      <h1 class="hero-heading fade-in">暮らすように、<br />集まる。</h1>
+      <p class="hero-desc fade-in">つながりが育つ家。千葉県流山市・南流山エリア</p>
+      <a href="#contact" class="btn-hero fade-in">空き状況を問い合わせる</a>
+    </div>
+  </section>
+
+  <!-- ========== CONCEPT ========== -->
+  <section class="section bg-secondary" id="concept">
+    <div class="container layout-text">
+      <div class="sec-title fade-in">
+        <p class="sec-en">CONCEPT</p>
+        <h2 class="sec-ja">コンセプト</h2>
+      </div>
+      <div class="text-body fade-in">
+        <p>
+          FLUX HOUSEは、ただ「借りる」場所ではありません。<br />
+          まるで友人の家に遊びに来たような、くつろいだ雰囲気の中で<br />
+          人が集まり、語らい、新しい何かが生まれる空間です。
+        </p>
+        <p>
+          「FLUX（流れ）」という名の通り、人と人が交わることでその都度かたちが変わる、流動的な場所。
+          南流山という土地が持つ、都市と自然が混ざり合う豊かさを背景に、
+          この家がみなさんの日常に溶け込む特別な一日をつくります。
+        </p>
+        <p>
+          子育て世代が多く集まるこのエリアで、家族や仲間と「特別な普通の時間」を過ごしませんか。
+        </p>
+        <a href="https://note.com/jin_sariimama/m/mbada4e66a2a3" target="_blank" rel="noopener noreferrer" class="text-link">
+          コンセプトについて詳しく読む →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== USAGE ========== -->
+  <section class="section bg-primary" id="usage">
+    <div class="container">
+      <div class="sec-title fade-in">
+        <p class="sec-en">USAGE</p>
+        <h2 class="sec-ja">こんなシーンで</h2>
+      </div>
+      <div class="grid-3 grid-usage">
+        <div class="usage-card fade-in">
+          <span class="usage-num">01</span>
+          <h3>家族の集まり</h3>
+          <p>誕生日会やホームパーティーに。広々とした空間で家族みんながリラックスできます。</p>
+        </div>
+        <div class="usage-card fade-in">
+          <span class="usage-num">02</span>
+          <h3>友人・ママ友会</h3>
+          <p>子連れでも安心。お子さんが遊ぶ横でゆっくりおしゃべりできる場所です。</p>
+        </div>
+        <div class="usage-card fade-in">
+          <span class="usage-num">03</span>
+          <h3>ワークショップ・撮影</h3>
+          <p>ハンドメイド教室、料理教室、写真撮影など。温かみのある空間が作品を引き立てます。</p>
+        </div>
+        <div class="usage-card fade-in">
+          <span class="usage-num">04</span>
+          <h3>チームのオフサイト</h3>
+          <p>Wi-Fi完備。少人数チームのブレインストーミングや合宿に。</p>
+        </div>
+        <div class="usage-card fade-in">
+          <span class="usage-num">05</span>
+          <h3>記念日・お祝い</h3>
+          <p>プライベートな空間で大切な記念日を。キッチンを使った手料理でおもてなし。</p>
+        </div>
+        <div class="usage-card fade-in">
+          <span class="usage-num">06</span>
+          <h3>静かな一人時間</h3>
+          <p>集中したい作業や読書、ひとり映画など。静かで落ち着いた時間が過ごせます。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SPACE ========== -->
+  <section class="section bg-secondary" id="space">
+    <div class="container">
+      <div class="sec-title fade-in">
+        <p class="sec-en">SPACE</p>
+        <h2 class="sec-ja">スペース紹介</h2>
+      </div>
+      <div class="gallery fade-in">
+        <div class="gallery-main">
+          <div class="photo-ph ph-main"><span>リビング・ダイニング</span></div>
+        </div>
+        <div class="gallery-sub">
+          <div class="photo-ph ph-kitchen"><span>キッチン</span></div>
+          <div class="photo-ph ph-exterior"><span>外観・エントランス</span></div>
+        </div>
+      </div>
+      <div class="equipment fade-in">
+        <h3 class="equip-heading">設備・備品</h3>
+        <ul class="equip-list">
+          <li>Wi-Fi（高速インターネット）</li>
+          <li>キッチン（IHコンロ・調理器具）</li>
+          <li>冷暖房完備</li>
+          <li>トイレ</li>
+          <li>駐車場（要確認）</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PRICING ========== -->
+  <section class="section bg-primary" id="pricing">
+    <div class="container">
+      <div class="sec-title fade-in">
+        <p class="sec-en">PRICING</p>
+        <h2 class="sec-ja">料金</h2>
+      </div>
+      <div class="pricing-wrap fade-in">
+        <div class="pricing-card">
+          <p class="pricing-label">平日</p>
+          <p class="pricing-price">¥3,000<span> / 時</span></p>
+        </div>
+        <div class="pricing-card pricing-card--accent">
+          <p class="pricing-label">土日祝</p>
+          <p class="pricing-price">¥4,000<span> / 時</span></p>
+        </div>
+      </div>
+      <ul class="pricing-notes fade-in">
+        <li>最低利用時間：2時間〜</li>
+        <li>清掃費：無料</li>
+      </ul>
+      <p class="pricing-disclaimer fade-in">※料金は予告なく変更される場合があります</p>
+      <div class="fade-in" style="margin-top:48px;">
+        <a href="#contact" class="btn-outline">予約・空き状況を確認する</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== ACCESS ========== -->
+  <section class="section bg-secondary" id="access">
+    <div class="container">
+      <div class="sec-title fade-in">
+        <p class="sec-en">ACCESS</p>
+        <h2 class="sec-ja">アクセス</h2>
+      </div>
+
+      <!-- 言語切り替えボタン -->
+      <div class="map-toggle fade-in">
+        <button class="map-btn map-btn--active" data-lang="ja" aria-pressed="true">日本語</button>
+        <button class="map-btn" data-lang="en" aria-pressed="false">English</button>
+      </div>
+
+      <!-- マップ画像 -->
+      <div class="map-image-wrap fade-in">
+        <img
+          id="map-img-ja"
+          src="/access-map-japanese.png"
+          alt="アクセスマップ（日本語）"
+          class="map-image"
+          style="display:block;"
+        />
+        <img
+          id="map-img-en"
+          src="/access-map-english.png"
+          alt="Access map (English)"
+          class="map-image"
+          style="display:none;"
+        />
+      </div>
+
+      <!-- アクセス情報 -->
+      <ul class="access-info-list fade-in">
+        <li>つくばエクスプレス・JR武蔵野線「南流山駅」から徒歩15分・車5分</li>
+        <li>お車でお越しの場合は駐車場についてお問い合わせください</li>
+      </ul>
+
+      <!-- 周辺地図 -->
+      <div class="area-map-wrap fade-in">
+        <img
+          src="/FLUX HOUSE minaminagareyama.png"
+          alt="南流山エリアマップ"
+          class="area-map-img"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== AREA GUIDE ========== -->
+  <section class="section bg-primary" id="area">
+    <div class="container">
+      <div class="sec-title fade-in">
+        <p class="sec-en">LOCAL EXPERIENCE</p>
+        <h2 class="sec-ja">周辺おすすめスポット</h2>
+      </div>
+      <div class="grid-3">
+        <div class="area-card fade-in">
+          <span class="area-badge">カフェ</span>
+          <h3>レタンプリュス</h3>
+          <p>地元で人気のおしゃれなカフェ。こだわりのコーヒーとスイーツでひと休み。</p>
+        </div>
+        <div class="area-card fade-in">
+          <span class="area-badge">インテリア</span>
+          <h3>LIANTIQE</h3>
+          <p>センスあふれるアンティーク家具のショップ。空間づくりのインスピレーションに。</p>
+        </div>
+        <div class="area-card fade-in">
+          <span class="area-badge">スパ・温浴</span>
+          <h3>スパメッツァおおたか</h3>
+          <p>大型スパ施設でリフレッシュ。サウナ・岩盤浴など充実した施設が揃います。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SNS / NOTE ========== -->
+  <section class="section bg-secondary" id="sns">
+    <div class="container">
+      <div class="sec-title fade-in">
+        <p class="sec-en">JOURNAL</p>
+        <h2 class="sec-ja">最新情報</h2>
+      </div>
+      <div class="sns-grid">
+        <!-- note -->
+        <div class="sns-col fade-in">
+          <div class="sns-head">
+            <p class="sns-platform">note — FLUX HOUSEマガジン</p>
+          </div>
+          {noteItems.length > 0 ? (
+            <ul class="note-list">
+              {noteItems.map((item) => (
+                <li class="note-item">
+                  <a href={item.link} target="_blank" rel="noopener noreferrer">
+                    <p class="note-title">{item.title}</p>
+                    {item.description && <p class="note-desc">{item.description}…</p>}
+                    <p class="note-date">{item.pubDate}</p>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <div class="sns-empty">
+              <a href="https://note.com/jin_sariimama/m/mbada4e66a2a3" target="_blank" rel="noopener noreferrer">noteを読む →</a>
+            </div>
+          )}
+          <a href="https://note.com/jin_sariimama/m/mbada4e66a2a3" target="_blank" rel="noopener noreferrer" class="sns-more">すべての記事を読む →</a>
+        </div>
+
+        <!-- Instagram -->
+        <div class="sns-col fade-in">
+          <div class="sns-head">
+            <p class="sns-platform">Instagram — @fluxhouse_nagareyama</p>
+          </div>
+          {BEHOLD_FEED_ID ? (
+            <behold-widget feed-id={BEHOLD_FEED_ID}></behold-widget>
+          ) : (
+            <div class="ig-placeholder">
+              <p>最新の写真はInstagramで発信中</p>
+              <a href="https://www.instagram.com/fluxhouse_nagareyama/" target="_blank" rel="noopener noreferrer" class="btn-outline">Instagramを見る</a>
+            </div>
+          )}
+          <a href="https://www.instagram.com/fluxhouse_nagareyama/" target="_blank" rel="noopener noreferrer" class="sns-more">Instagramをフォローする →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== MINPAKU ========== -->
+  <section class="section bg-dark" id="minpaku">
+    <div class="container">
+      <div class="minpaku-inner fade-in">
+        <span class="badge">Coming Soon</span>
+        <div class="sec-title" style="margin-top:20px;">
+          <p class="sec-en">STAY</p>
+          <h2 class="sec-ja">民泊・住宅宿泊事業 準備中</h2>
+        </div>
+        <p class="minpaku-text">
+          FLUX HOUSEでは、住宅宿泊事業（民泊）の開始に向けて準備を進めています。<br />
+          「泊まる」ことでより深くこの場所と南流山を体験できるよう、<br />
+          準備が整い次第Instagramにてお知らせします。
+        </p>
+        <a href="https://www.instagram.com/fluxhouse_nagareyama/" target="_blank" rel="noopener noreferrer" class="btn-outline">
+          Instagramをフォローする
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CONTACT ========== -->
+  <section class="section bg-primary" id="contact">
+    <div class="container">
+      <div class="contact-inner fade-in">
+        <div class="sec-title">
+          <p class="sec-en">CONTACT</p>
+          <h2 class="sec-ja">お問い合わせ</h2>
+        </div>
+        <p class="contact-text">
+          ご予約・空き状況の確認・その他のご質問は、<br />下記のフォームからお気軽にどうぞ。<br />
+          通常2〜3営業日以内にご返信いたします。
+        </p>
+        <a href="https://forms.gle/MAnhrqk2x8Rn2JWD7" target="_blank" rel="noopener noreferrer" class="btn-outline">
+          お問い合わせ・空き状況を確認する
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-logo">
+        <img src="/fluxhouse_logo_tate_white.png" alt="FLUX HOUSE" class="footer-logo-img" />
+      </div>
+      <nav class="footer-links">
+        <a href="https://www.instagram.com/fluxhouse_nagareyama/" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="https://note.com/jin_sariimama/m/mbada4e66a2a3" target="_blank" rel="noopener noreferrer">note</a>
+        <a href="#contact">お問い合わせ</a>
+      </nav>
+      <p class="footer-copy">©2026 FLUX HOUSE</p>
+    </div>
+  </footer>
+
+</Layout>
+
+<style>
+  /* ============================================================
+     LAYOUT BACKGROUNDS
+     ============================================================ */
+  .bg-primary   { background: var(--bg-primary); }
+  .bg-secondary { background: var(--bg-secondary); }
+  .bg-dark      { background: var(--bg-dark); }
+
+  /* ============================================================
+     SECTION BASE
+     ============================================================ */
+  .section {
+    padding: 80px 0;
+  }
+
+  @media (min-width: 768px) {
+    .section {
+      padding: 130px 0;
+    }
+  }
+
+  /* ============================================================
+     SECTION TITLE  (英語大文字 + 日本語)
+     ============================================================ */
+  .sec-title {
+    margin-bottom: 56px;
+  }
+
+  .sec-en {
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #8c8c8c;
+    margin-bottom: 10px;
+  }
+
+  .sec-en--light {
+    color: rgba(255,255,255,0.6);
+  }
+
+  .sec-ja {
+    font-family: var(--font-heading);
+    font-size: clamp(1.6rem, 4vw, 2.4rem);
+    font-weight: 700;
+    color: var(--color-text);
+    line-height: 1.3;
+  }
+
+  .sec-ja--light {
+    color: #ffffff;
+  }
+
+  /* ============================================================
+     HEADER
+     ============================================================ */
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(245, 240, 232, 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 80px;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  @media (min-width: 768px) {
+    .header-inner {
+      height: 96px;
+    }
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+  }
+
+  .logo-img {
+    height: 36px;
+    width: auto;
+    display: block;
+    mix-blend-mode: multiply;
+  }
+
+  @media (min-width: 768px) {
+    .logo-img {
+      height: 48px;
+    }
+  }
+
+  .nav-desktop {
+    display: none;
+    gap: 40px;
+  }
+
+  .nav-desktop a {
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    color: var(--color-text);
+    position: relative;
+    transition: color var(--transition);
+  }
+
+  .nav-desktop a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--color-accent);
+    transition: width var(--transition);
+  }
+
+  .nav-desktop a:hover {
+    color: var(--color-accent);
+  }
+
+  .nav-desktop a:hover::after {
+    width: 100%;
+  }
+
+  @media (min-width: 768px) {
+    .nav-desktop { display: flex; }
+    .hamburger   { display: none; }
+  }
+
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 40px;
+    height: 40px;
+    padding: 8px;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  .hamburger span {
+    display: block;
+    width: 22px;
+    height: 1.5px;
+    background: var(--color-text);
+    border-radius: 2px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+
+  .hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+  .mobile-menu {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+    background: rgba(245, 240, 232, 0.98);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .mobile-menu.open { max-height: 320px; }
+
+  .mobile-menu nav {
+    display: flex;
+    flex-direction: column;
+    padding: 16px 24px 24px;
+  }
+
+  .mobile-nav-link {
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    color: var(--color-text);
+    padding: 14px 0;
+    border-bottom: 1px solid var(--color-border);
+    transition: color var(--transition);
+  }
+
+  .mobile-nav-link:last-child { border-bottom: none; }
+  .mobile-nav-link:hover { color: var(--color-accent); }
+
+  /* ============================================================
+     HERO
+     ============================================================ */
+  .hero {
+    position: relative;
+    min-height: 100svh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(150deg, #4A3020 0%, #2C2017 60%, #1A1209 100%);
+    overflow: hidden;
+    padding: 120px 24px 80px;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 70% 50% at 15% 70%, rgba(139,111,71,0.4) 0%, transparent 65%),
+      radial-gradient(ellipse 40% 40% at 85% 20%, rgba(184,150,106,0.15) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .hero-inner {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    max-width: 760px;
+    margin: 0 auto;
+  }
+
+  .hero-sub {
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.55);
+    margin-bottom: 28px;
+  }
+
+  .hero-heading {
+    font-family: var(--font-heading);
+    font-size: clamp(3rem, 10vw, 6.5rem);
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.2;
+    letter-spacing: 0.04em;
+    margin-bottom: 32px;
+    text-shadow: 0 4px 48px rgba(0,0,0,0.25);
+  }
+
+  .hero-desc {
+    font-size: clamp(0.9rem, 2vw, 1rem);
+    color: rgba(255,255,255,0.7);
+    letter-spacing: 0.08em;
+    margin-bottom: 56px;
+    line-height: 1.8;
+  }
+
+  .btn-hero {
+    display: inline-block;
+    border: 1px solid rgba(255,255,255,0.7);
+    color: #ffffff;
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    padding: 16px 48px;
+    border-radius: 2px;
+    transition: background var(--transition), color var(--transition), border-color var(--transition);
+  }
+
+  .btn-hero:hover {
+    background: #ffffff;
+    color: var(--color-text);
+    border-color: #ffffff;
+  }
+
+  /* ============================================================
+     CONCEPT
+     ============================================================ */
+  .layout-text {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  @media (min-width: 900px) {
+    .layout-text {
+      grid-template-columns: 280px 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+  }
+
+  .text-body p {
+    font-size: 1.05rem;
+    line-height: 2.1;
+    color: #4a4a4a;
+    margin-bottom: 24px;
+  }
+
+  .text-link {
+    display: inline-block;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--color-accent);
+    letter-spacing: 0.05em;
+    border-bottom: 1px solid var(--color-accent);
+    padding-bottom: 2px;
+    transition: opacity var(--transition);
+  }
+
+  .text-link:hover { opacity: 0.65; }
+
+  /* ============================================================
+     USAGE
+     ============================================================ */
+  .grid-3 {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  @media (min-width: 640px) {
+    .grid-3 { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (min-width: 900px) {
+    .grid-3 { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  .usage-card {
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 36px 28px;
+    box-shadow: var(--shadow);
+    transition: transform var(--transition), box-shadow var(--transition);
+  }
+
+  .usage-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-hover);
+  }
+
+  .usage-num {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 2rem;
+    font-weight: 300;
+    color: #e0e0e0;
+    line-height: 1;
+    margin-bottom: 20px;
+    letter-spacing: 0.05em;
+  }
+
+  .usage-card h3 {
+    font-family: var(--font-heading);
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: var(--color-text);
+  }
+
+  .usage-card p {
+    font-size: 0.875rem;
+    line-height: 1.85;
+    color: #5A4535;
+  }
+
+  /* ============================================================
+     SPACE / GALLERY
+     ============================================================ */
+  .gallery {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-bottom: 56px;
+  }
+
+  @media (min-width: 768px) {
+    .gallery {
+      grid-template-columns: 1.6fr 1fr;
+      gap: 16px;
+    }
+  }
+
+  .gallery-sub {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  @media (min-width: 768px) {
+    .gallery-sub {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+  }
+
+  .photo-ph {
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 4/3;
+  }
+
+  .gallery-main .photo-ph {
+    aspect-ratio: unset;
+    height: 100%;
+    min-height: 240px;
+  }
+
+  @media (min-width: 768px) {
+    .gallery-main .photo-ph { min-height: 440px; }
+    .gallery-sub .photo-ph  { min-height: 200px; }
+  }
+
+  .photo-ph span {
+    font-family: var(--font-heading);
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.85);
+    letter-spacing: 0.08em;
+  }
+
+  .ph-main     { background: linear-gradient(135deg, #C4A882, #8B6F47); }
+  .ph-kitchen  { background: linear-gradient(135deg, #A0896B, #6B5038); }
+  .ph-exterior { background: linear-gradient(135deg, #B8A08A, #7D6048); }
+
+  .equip-heading {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 24px;
+    color: var(--color-text);
+  }
+
+  .equip-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  @media (min-width: 480px) {
+    .equip-list { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (min-width: 768px) {
+    .equip-list { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  .equip-list li {
+    background: var(--color-bg);
+    border-radius: 6px;
+    border-left: 3px solid var(--color-accent);
+    padding: 14px 18px;
+    font-size: 0.875rem;
+    color: #4a4a4a;
+    line-height: 1.6;
+  }
+
+  /* ============================================================
+     PRICING
+     ============================================================ */
+  .pricing-wrap {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    max-width: 500px;
+    margin-bottom: 36px;
+  }
+
+  .pricing-card {
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: 40px 28px;
+    text-align: center;
+    background: var(--bg-secondary);
+  }
+
+  .pricing-card--accent {
+    border-color: var(--color-accent);
+    background: #ffffff;
+  }
+
+  .pricing-label {
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    color: var(--color-accent);
+    margin-bottom: 14px;
+  }
+
+  .pricing-price {
+    font-family: var(--font-heading);
+    font-size: clamp(1.8rem, 5vw, 2.6rem);
+    font-weight: 700;
+    color: var(--color-text);
+  }
+
+  .pricing-price span {
+    font-size: 0.95rem;
+    font-weight: 400;
+    color: #7A6655;
+  }
+
+  .pricing-notes {
+    list-style: none;
+    margin-bottom: 8px;
+  }
+
+  .pricing-notes li {
+    font-size: 0.9rem;
+    color: #5A4535;
+    line-height: 2;
+  }
+
+  .pricing-notes li::before {
+    content: '— ';
+    color: var(--color-accent);
+  }
+
+  .pricing-disclaimer {
+    font-size: 0.78rem;
+    color: #9A8878;
+  }
+
+  /* ============================================================
+     ACCESS
+     ============================================================ */
+  .map-toggle {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 28px;
+  }
+
+  .map-btn {
+    display: inline-block;
+    border: 1px solid var(--color-accent);
+    color: var(--color-accent);
+    background: transparent;
+    font-family: var(--font-body);
+    font-size: 0.825rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    padding: 10px 28px;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: background var(--transition), color var(--transition);
+  }
+
+  .map-btn:hover,
+  .map-btn--active {
+    background: var(--color-accent);
+    color: #ffffff;
+  }
+
+  .map-image-wrap {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto 36px;
+  }
+
+  .map-image {
+    display: none;
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+  }
+
+  .map-image--visible {
+    display: block;
+  }
+
+  .access-info-list {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .access-info-list li {
+    font-size: 0.95rem;
+    line-height: 1.9;
+    color: #4a4a4a;
+    padding-left: 1em;
+    position: relative;
+  }
+
+  .access-info-list li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--color-accent);
+    font-weight: 400;
+  }
+
+  .area-map-wrap {
+    max-width: 900px;
+    margin: 40px auto 0;
+  }
+
+  .area-map-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+  }
+
+  /* ============================================================
+     AREA
+     ============================================================ */
+  .area-card {
+    background: var(--color-bg);
+    border-radius: 8px;
+    padding: 36px 28px;
+    transition: transform var(--transition);
+  }
+
+  .area-card:hover { transform: translateY(-3px); }
+
+  .area-badge {
+    display: inline-block;
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    border: 1px solid var(--color-accent);
+    color: var(--color-accent);
+    padding: 3px 10px;
+    border-radius: 2px;
+    margin-bottom: 14px;
+  }
+
+  .area-card h3 {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: var(--color-text);
+  }
+
+  .area-card p {
+    font-size: 0.875rem;
+    line-height: 1.85;
+    color: #5A4535;
+  }
+
+  /* ============================================================
+     SNS / JOURNAL
+     ============================================================ */
+  .sns-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 64px;
+  }
+
+  @media (min-width: 768px) {
+    .sns-grid { grid-template-columns: 1fr 1fr; gap: 80px; }
+  }
+
+  .sns-col { display: flex; flex-direction: column; }
+
+  .sns-head {
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--color-border);
+    margin-bottom: 32px;
+  }
+
+  .sns-platform {
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    font-weight: 500;
+  }
+
+  .note-list { flex: 1; }
+
+  .note-item a {
+    display: block;
+    padding: 22px 0;
+    border-bottom: 1px solid var(--color-border);
+    transition: opacity var(--transition);
+  }
+
+  .note-item a:hover { opacity: 0.65; }
+
+  .note-title {
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text);
+    line-height: 1.5;
+    margin-bottom: 8px;
+  }
+
+  .note-desc {
+    font-size: 0.825rem;
+    color: rgba(44,32,23,0.6);
+    line-height: 1.7;
+    margin-bottom: 8px;
+  }
+
+  .note-date {
+    font-size: 0.72rem;
+    color: var(--color-accent);
+    letter-spacing: 0.05em;
+  }
+
+  .sns-more {
+    display: inline-block;
+    margin-top: 24px;
+    font-size: 0.825rem;
+    color: var(--color-accent);
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    transition: opacity var(--transition);
+  }
+
+  .sns-more:hover { opacity: 0.65; }
+
+  .sns-empty {
+    padding: 48px 0;
+    font-size: 0.9rem;
+    color: rgba(44,32,23,0.45);
+  }
+
+  .sns-empty a {
+    color: var(--color-accent);
+    font-weight: 500;
+  }
+
+  .ig-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+    padding: 48px 0;
+    flex: 1;
+  }
+
+  .ig-placeholder p {
+    font-size: 0.9rem;
+    color: rgba(44,32,23,0.55);
+  }
+
+  /* ============================================================
+     MINPAKU
+     ============================================================ */
+  .minpaku-inner {
+    max-width: 640px;
+  }
+
+  .badge {
+    display: inline-block;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    background: var(--color-accent);
+    color: #ffffff;
+    padding: 6px 16px;
+    border-radius: 2px;
+  }
+
+  .minpaku-text {
+    font-size: 0.95rem;
+    line-height: 2.1;
+    color: rgba(255,255,255,0.75);
+    margin-bottom: 40px;
+  }
+
+  #minpaku .sec-ja {
+    color: #ffffff;
+  }
+
+  #minpaku .sec-en {
+    color: rgba(255,255,255,0.5);
+  }
+
+  /* ============================================================
+     CONTACT
+     ============================================================ */
+  .contact-inner {
+    max-width: 560px;
+  }
+
+  .contact-text {
+    font-size: 1rem;
+    line-height: 2.1;
+    color: #5A4535;
+    margin-bottom: 48px;
+  }
+
+  /* ============================================================
+     BUTTONS
+     ============================================================ */
+  .btn-outline {
+    display: inline-block;
+    border: 1px solid var(--color-accent);
+    color: var(--color-accent);
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    padding: 14px 40px;
+    border-radius: 2px;
+    transition: background var(--transition), color var(--transition), transform var(--transition);
+  }
+
+  .btn-outline:hover {
+    background: var(--color-accent);
+    color: #ffffff;
+    transform: translateY(-2px);
+  }
+
+  .btn-outline-light {
+    display: inline-block;
+    border: 1px solid rgba(255,255,255,0.8);
+    color: #ffffff;
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    padding: 14px 40px;
+    border-radius: 2px;
+    transition: background var(--transition), color var(--transition), border-color var(--transition);
+  }
+
+  .btn-outline-light:hover {
+    background: #ffffff;
+    color: var(--color-text);
+    border-color: #ffffff;
+  }
+
+  /* ============================================================
+     FOOTER
+     ============================================================ */
+  .site-footer {
+    background: var(--color-text);
+    padding: 56px 0;
+  }
+
+  .footer-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+    text-align: center;
+  }
+
+  @media (min-width: 768px) {
+    .footer-inner {
+      flex-direction: row;
+      justify-content: space-between;
+      text-align: left;
+    }
+  }
+
+  .footer-logo-img {
+    height: 80px;
+    width: auto;
+    display: block;
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .footer-links a {
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    color: rgba(255,255,255,0.55);
+    transition: color var(--transition);
+  }
+
+  .footer-links a:hover { color: #ffffff; }
+
+  .footer-copy {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.3);
+    letter-spacing: 0.1em;
+  }
+</style>
+
+{BEHOLD_FEED_ID && (
+  <script type="module" src="https://w.behold.so/widget.js"></script>
+)}
+
+<script>
+  // Hamburger
+  const hamburger = document.querySelector('.hamburger') as HTMLButtonElement | null;
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  if (hamburger && mobileMenu) {
+    hamburger.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.toggle('open');
+      hamburger.classList.toggle('open', isOpen);
+      hamburger.setAttribute('aria-expanded', String(isOpen));
+      mobileMenu.setAttribute('aria-hidden', String(!isOpen));
+    });
+    mobileMenu.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('open');
+        hamburger.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+        mobileMenu.setAttribute('aria-hidden', 'true');
+      });
+    });
+  }
+
+  // Map language toggle
+  const mapBtns = document.querySelectorAll('.map-btn');
+  const mapImgJa = document.getElementById('map-img-ja');
+  const mapImgEn = document.getElementById('map-img-en');
+
+  mapBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const lang = (btn as HTMLElement).dataset.lang;
+      mapBtns.forEach((b) => {
+        b.classList.remove('map-btn--active');
+        b.setAttribute('aria-pressed', 'false');
+      });
+      btn.classList.add('map-btn--active');
+      btn.setAttribute('aria-pressed', 'true');
+      if (lang === 'ja') {
+        if (mapImgJa) (mapImgJa as HTMLElement).style.display = 'block';
+        if (mapImgEn) (mapImgEn as HTMLElement).style.display = 'none';
+      } else {
+        if (mapImgEn) (mapImgEn as HTMLElement).style.display = 'block';
+        if (mapImgJa) (mapImgJa as HTMLElement).style.display = 'none';
+      }
+    });
+  });
+
+  // Fade-in
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+  );
+
+  document.querySelectorAll('.fade-in').forEach((el) => observer.observe(el));
+</script>

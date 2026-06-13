@@ -471,12 +471,10 @@ try {
       <h2 class="sec-ja">運営者について</h2>
     </div>
     <div class="operators-wrap">
-      <div class="operator-grid fade-in">
-        <div class="operator-photo">
-          <div class="photo-placeholder operator-placeholder" data-caption="運営者ポートレート／自然光・屋内・柔らかい表情">
-            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&q=80" alt="撮影ダミー：永妻寛哲" class="gallery-img" />
-            <span class="photo-badge">要撮影</span>
-          </div>
+      <div class="operator-card fade-in">
+        <div class="photo-placeholder operator-placeholder" data-caption="運営者ポートレート／自然光・屋内・柔らかい表情">
+          <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&q=80" alt="撮影ダミー：永妻寛哲" class="gallery-img" />
+          <span class="photo-badge">要撮影</span>
         </div>
         <div class="operator-info">
           <p class="operator-name">永妻 寛哲</p>
@@ -487,8 +485,7 @@ try {
             エンジニアなしでシステムを構築し、事業を億単位の売上規模へ成長させた経験を持つ。
           </p>
           <p class="operator-bio">
-            2017年に独立・起業。ITやクラウドの活用支援を軸に、
-            スタートアップから中小企業まで幅広くコンサルティングを行う。
+            2017年に独立・起業。ITやクラウドの活用支援を軸に、スタートアップから中小企業まで幅広くコンサルティングを行う。
             スタートアップで培った「場の熱量が事業を動かす」という確信から、南流山にFLUX HOUSEを開設。
           </p>
           <p class="operator-link">
@@ -499,12 +496,10 @@ try {
         </div>
       </div>
 
-      <div class="operator-grid fade-in">
-        <div class="operator-photo">
-          <div class="photo-placeholder operator-placeholder" data-caption="運営者ポートレート／自然光・屋内・柔らかい表情">
-            <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&q=80" alt="撮影ダミー：神徳あや" class="gallery-img" />
-            <span class="photo-badge">要撮影</span>
-          </div>
+      <div class="operator-card fade-in">
+        <div class="photo-placeholder operator-placeholder" data-caption="運営者ポートレート／自然光・屋内・柔らかい表情">
+          <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&q=80" alt="撮影ダミー：神徳あや" class="gallery-img" />
+          <span class="photo-badge">要撮影</span>
         </div>
         <div class="operator-info">
           <p class="operator-name">神徳 あや</p>
@@ -1543,27 +1538,22 @@ try {
      OPERATOR
      ============================================================ */
   .operators-wrap {
-    display: flex;
-    flex-direction: column;
-    gap: 72px;
-  }
-
-  .operator-grid {
     display: grid;
     grid-template-columns: 1fr;
     gap: 48px;
-    max-width: 800px;
-    padding-top: 72px;
-    border-top: 1px solid rgba(0,0,0,0.07);
   }
 
-  .operator-grid:first-child {
-    padding-top: 0;
-    border-top: none;
+  @media (min-width: 768px) {
+    .operators-wrap {
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+    }
   }
 
-  @media (min-width: 640px) {
-    .operator-grid { grid-template-columns: 200px 1fr; gap: 64px; align-items: start; }
+  .operator-card {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
   }
 
   .operator-ph {

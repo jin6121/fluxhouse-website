@@ -1319,7 +1319,13 @@ try {
 
   .operator-placeholder {
     aspect-ratio: 1;
-    width: 100%;
+    width: 120px;
+  }
+
+  @media (min-width: 768px) {
+    .operator-placeholder {
+      width: 140px;
+    }
   }
 
   .spec-wrap { max-width: 800px; }

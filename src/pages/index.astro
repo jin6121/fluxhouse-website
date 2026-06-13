@@ -227,6 +227,30 @@ try {
     <div class="fade-in" style="margin-top: 56px;">
       <a href="#contact" class="btn-outline">見学・下見を予約する</a>
     </div>
+
+    <!-- 家主滞在案内 -->
+    <div class="host-presence fade-in">
+      <div class="host-presence-icon">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+          <circle cx="10" cy="10" r="8.5" stroke="currentColor" stroke-width="1.2"/>
+          <path d="M10 9v5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+          <circle cx="10" cy="6.5" r="0.8" fill="currentColor"/>
+        </svg>
+      </div>
+      <div class="host-presence-body">
+        <p class="host-presence-heading">運営者が在館しています</p>
+        <p class="host-presence-text">
+          FLUX HOUSEは、運営者が同じ建物内に滞在する「家主滞在型」の施設です。
+          設備の使い方やキッチン・BBQの段取り、撮影時の備品移動など、
+          困ったときにすぐ相談できる体制でお迎えします。
+        </p>
+        <p class="host-presence-text">
+          セッションや撮影の進行を妨げることはありません。
+          プライバシーに配慮し、必要なとき以外はお声がけいたしません。
+        </p>
+        <p class="host-presence-note">※貸切は一棟・一社単位です。同時に複数の組をお受けすることはありません。</p>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -1116,6 +1140,49 @@ try {
   .pricing-notes p::before {
     content: '— ';
     color: #8B6F47;
+  }
+
+  /* ============================================================
+     HOST PRESENCE
+     ============================================================ */
+  .host-presence {
+    display: flex;
+    gap: 20px;
+    max-width: 640px;
+    margin-top: 64px;
+    padding: 32px 36px;
+    border: 1px solid rgba(0,0,0,0.08);
+    border-radius: 4px;
+    background: #F7F4EF;
+  }
+
+  .host-presence-icon {
+    flex-shrink: 0;
+    color: #8B6F47;
+    padding-top: 2px;
+  }
+
+  .host-presence-heading {
+    font-family: var(--font-heading);
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin-bottom: 14px;
+    letter-spacing: 0.02em;
+  }
+
+  .host-presence-text {
+    font-size: 0.875rem;
+    line-height: 1.9;
+    color: #555;
+    margin-bottom: 10px;
+  }
+
+  .host-presence-note {
+    font-size: 0.78rem;
+    color: #888;
+    line-height: 1.7;
+    margin-top: 14px;
   }
 
   .btn-outline {

@@ -63,8 +63,9 @@ try {
 </header>
 
 <!-- ========== HERO ========== -->
+<!-- PHOTO: リビング全体の引き。自然光が入る昼間。人物なし。横位置。 -->
 <section class="hero">
-  <div class="hero-inner">
+  <div class="hero-bg"></div>
     <p class="hero-label fade-in">A HOUSE FOR TEAMS &amp; CREATORS &nbsp;—&nbsp; 30 min from Tokyo</p>
     <h1 class="hero-heading fade-in">会議室では、<br />生まれない。</h1>
     <p class="hero-desc fade-in">
@@ -240,19 +241,19 @@ try {
     <!-- TODO: プロ撮影写真に差し替え -->
     <div class="gallery fade-in">
       <div class="gallery-main">
-        <div class="photo-ph ph-main">
-          <span>リビング・ダイニング</span>
-          <!-- TODO: プロ撮影写真（リビング全景）に差し替え -->
+        <div class="photo-placeholder" data-caption="リビング・自然光／窓を背にした引きのカット">
+          <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80" alt="撮影ダミー：リビング" class="gallery-img" />
+          <span class="photo-badge">要撮影</span>
         </div>
       </div>
       <div class="gallery-sub">
-        <div class="photo-ph ph-kitchen">
-          <span>キッチン</span>
-          <!-- TODO: プロ撮影写真（キッチン）に差し替え -->
+        <div class="photo-placeholder" data-caption="キッチン全体／作業面と窓が両方入るアングル">
+          <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80" alt="撮影ダミー：キッチン" class="gallery-img" />
+          <span class="photo-badge">要撮影</span>
         </div>
-        <div class="photo-ph ph-exterior">
-          <span>外観・エントランス</span>
-          <!-- TODO: プロ撮影写真（外観）に差し替え -->
+        <div class="photo-placeholder" data-caption="外観・玄関／搬入経路がわかるアングル">
+          <img src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=800&q=80" alt="撮影ダミー：外観" class="gallery-img" />
+          <span class="photo-badge">要撮影</span>
         </div>
       </div>
     </div>
@@ -329,6 +330,10 @@ try {
     </div>
 
     <div class="offsite-grid">
+      <div class="photo-placeholder offsite-photo fade-in" data-caption="テーブルを囲む4〜6名／自然光・俯瞰または斜めから">
+        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80" alt="撮影ダミー：オフサイト" class="gallery-img" />
+        <span class="photo-badge">要撮影</span>
+      </div>
       <div class="offsite-info fade-in">
         <p class="offsite-body">
           オフィスの外で、チームが集まる。フラットな空間で生まれる議論は、
@@ -425,8 +430,10 @@ try {
     </div>
     <div class="operator-grid fade-in">
       <div class="operator-photo">
-        <!-- TODO: 運営者顔写真（/operator.jpg）に差し替え -->
-        <div class="operator-ph"></div>
+        <div class="photo-placeholder operator-placeholder" data-caption="運営者ポートレート／自然光・屋内・柔らかい表情">
+          <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&q=80" alt="撮影ダミー：運営者" class="gallery-img" />
+          <span class="photo-badge">要撮影</span>
+        </div>
       </div>
       <div class="operator-info">
         <p class="operator-name">合同会社きいろのもり</p>
@@ -766,17 +773,29 @@ try {
     overflow: hidden;
   }
 
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background-image: url('https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=1600&q=80');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.35;
+  }
+
   .hero::before {
     content: '';
     position: absolute;
     inset: 0;
-    background: radial-gradient(ellipse 60% 60% at 20% 70%, rgba(139,111,71,0.3) 0%, transparent 60%);
+    background:
+      linear-gradient(to bottom, rgba(26,26,26,0.5) 0%, rgba(26,26,26,0.3) 50%, rgba(26,26,26,0.6) 100%),
+      radial-gradient(ellipse 60% 60% at 20% 70%, rgba(139,111,71,0.25) 0%, transparent 60%);
     pointer-events: none;
+    z-index: 1;
   }
 
   .hero-inner {
     position: relative;
-    z-index: 1;
+    z-index: 2;
     max-width: 780px;
     width: 100%;
   }
@@ -791,7 +810,7 @@ try {
   }
 
   .hero-heading {
-    font-family: var(--font-heading);
+    font-family: 'Noto Serif JP', 'Shippori Mincho', serif;
     font-size: clamp(3rem, 10vw, 6.5rem);
     font-weight: 700;
     color: #ffffff;
@@ -1120,9 +1139,79 @@ try {
     letter-spacing: 0.08em;
   }
 
-  .ph-main     { background: linear-gradient(135deg, #C4A882, #8B6F47); }
-  .ph-kitchen  { background: linear-gradient(135deg, #A0896B, #6B5038); }
-  .ph-exterior { background: linear-gradient(135deg, #B8A08A, #7D6048); }
+  /* photo-placeholder */
+  .photo-placeholder {
+    position: relative;
+    overflow: hidden;
+    border-radius: 4px;
+  }
+
+  .gallery-main .photo-placeholder {
+    height: 100%;
+    min-height: 260px;
+  }
+
+  @media (min-width: 768px) {
+    .gallery-main .photo-placeholder { min-height: 460px; }
+    .gallery-sub .photo-placeholder  { min-height: 215px; aspect-ratio: unset; }
+  }
+
+  .gallery-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .gallery-main .photo-placeholder .gallery-img,
+  .gallery-sub .photo-placeholder .gallery-img {
+    position: absolute;
+    inset: 0;
+  }
+
+  .gallery-sub .photo-placeholder {
+    aspect-ratio: 4/3;
+  }
+
+  .photo-placeholder::after {
+    content: attr(data-caption) " ▶ 要撮影";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0,0,0,0.72);
+    color: #fff;
+    font-size: 11px;
+    font-family: var(--font-body);
+    padding: 6px 10px;
+    letter-spacing: 0.04em;
+    z-index: 2;
+  }
+
+  .photo-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #cc0000;
+    color: #fff;
+    font-size: 10px;
+    font-family: var(--font-body);
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 2px;
+    letter-spacing: 0.08em;
+    z-index: 2;
+  }
+
+  .offsite-photo {
+    aspect-ratio: 4/3;
+    min-height: 280px;
+  }
+
+  .operator-placeholder {
+    aspect-ratio: 1;
+    width: 100%;
+  }
 
   .spec-wrap { max-width: 800px; }
 
@@ -1199,11 +1288,11 @@ try {
   .offsite-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 64px;
+    gap: 48px;
   }
 
   @media (min-width: 900px) {
-    .offsite-grid { grid-template-columns: 1fr 1fr; gap: 80px; }
+    .offsite-grid { grid-template-columns: 1fr 1fr 1fr; gap: 56px; align-items: start; }
   }
 
   .offsite-body {

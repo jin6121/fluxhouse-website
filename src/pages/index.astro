@@ -116,26 +116,45 @@ try {
 
 <!-- ========== CONCEPT ========== -->
 <section class="section bg-warm" id="concept">
-  <div class="container layout-text">
+  <div class="container">
     <div class="sec-title fade-in">
       <p class="sec-en">CONCEPT</p>
-      <h2 class="sec-ja">コンセプト</h2>
+      <h2 class="sec-ja">なぜ、FLUX HOUSEなのか。</h2>
     </div>
-    <div class="text-body fade-in">
+    <div class="concept-body fade-in">
+      <p class="concept-lead">FLUX——流れ。その時、そのチームにとって、一番心地いい場所になる。</p>
       <p>
-        FLUX——流れ。人が交わるたびに、かたちを変える場所。
+        会社の会議室で、ホワイトボードに向かい合うだけでは、既視感のある答えしか生まれません。
+        斬新なアイデアや、チームの深い一体感は、いつも予定調和の外側からやってくるものです。
       </p>
       <p>
-        FLUX HOUSEは、会議室にもスタジオにも、合宿所にもなる一軒の家です。
-        都市と自然が混ざり合う南流山で、チームの一日に"暮らし"の温度を。
+        FLUX HOUSEは、都市と自然が混ざり合う南流山にある一軒家。
       </p>
       <p>
-        「借りる」のではなく、「占有する」一日。そこから生まれるものに、
-        名前はまだなくていい。
+        1階には、ホワイトボードとプロジェクターを備え、集中して議論ができる会議室。
+        そして階段を上がった2階には、圧倒的な開放感とともに自然光が満ちる、
+        キッチンと一体になったリビングダイニング。
+        働く（ON）とくつろぐ（OFF）が溶け合うこの家には、境界線がありません。
+        ONとOFFの心地よいグラデーションを感じながら、その瞬間の気分に合わせた過ごし方を自由に選べます。
       </p>
-      <a href="https://note.com/jin_sariimama/m/mbada4e66a2a3" target="_blank" rel="noopener noreferrer" class="text-link">
-        コンセプトについて詳しく読む →
-      </a>
+      <p>
+        議論が行き詰まったら、2階のキッチンでコーヒーを淹れる。
+        ベランダに出て風に当たり、近くの公園まで自然を感じに歩いてみる。
+        室内ネットに横たわり、ハンモックに揺られ、ボルダリングやうんていで身体を動かしてみる。
+      </p>
+      <p>
+        一度机から離れて、五感を心地よく刺激してみる。
+        それだけで、張り詰めていた思考がするりとほどけ、鋭いアイデアや本当に話したかった本音が溢れ出します。
+      </p>
+      <p>
+        FLUX HOUSEには、決まった使い方はありません。
+        リビングは戦略を練る会議室にもなり、夜はBBQを囲む食卓にもなる。
+        五感を刺激するこの一軒家丸ごとが、あなたのチームのキャンバスです。
+      </p>
+      <p class="concept-close">
+        東京からわずか30分。チームの熱量を高める一日を。
+        FLUX HOUSEで、特別な時間を自由に味わい尽くしてください。
+      </p>
     </div>
   </div>
 </section>
@@ -278,7 +297,9 @@ try {
           <dd>4〜10名</dd>
           <dt>設備</dt>
           <!-- TODO: ホワイトボード・モニター・コーヒーセットの保有状況を確認して更新 -->
-          <dd>高速Wi-Fi / キッチン・調理器具 / 冷暖房 / 大型テーブル / 2階ベランダ（BBQ可）/ ホワイトボード（要確認）/ プロジェクター or モニター（要確認）/ コーヒーセットアップ（要確認）</dd>
+          <dd>【1F】会議室 / ホワイトボード / プロジェクター（要確認）/ 冷暖房<br />
+              【2F】キッチン・調理器具 / リビングダイニング / 2階ベランダ（BBQ可）/ 冷暖房<br />
+              【共通】高速Wi-Fi / コーヒーセットアップ（要確認）</dd>
           <dt>アクセス</dt>
           <dd>秋葉原からTX快速で約25分 + 徒歩 or 車</dd>
         </dl>
@@ -373,9 +394,14 @@ try {
             <td>要確認</td>
           </tr>
           <tr>
-            <th>リビング・ダイニング</th>
+            <th>1F 会議室</th>
             <!-- TODO: 実測値に差し替え -->
-            <td>要確認</td>
+            <td>要確認（ホワイトボード・プロジェクター備付）</td>
+          </tr>
+          <tr>
+            <th>2F リビングダイニング</th>
+            <!-- TODO: 実測値に差し替え -->
+            <td>要確認（キッチン一体型・自然光・ベランダ接続）</td>
           </tr>
           <tr>
             <th>天井高</th>
@@ -1003,6 +1029,35 @@ try {
   /* ============================================================
      CONCEPT
      ============================================================ */
+  .concept-body {
+    max-width: 720px;
+  }
+
+  .concept-lead {
+    font-family: var(--font-heading);
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    font-weight: 600;
+    color: #1a1a1a;
+    line-height: 1.7;
+    margin-bottom: 40px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+  }
+
+  .concept-body p {
+    font-size: 0.975rem;
+    line-height: 2.1;
+    color: #444;
+    margin-bottom: 28px;
+  }
+
+  .concept-close {
+    font-weight: 500;
+    color: #1a1a1a !important;
+    margin-top: 16px;
+  }
+
+  /* legacy - kept for safety */
   .layout-text {
     display: grid;
     grid-template-columns: 1fr;

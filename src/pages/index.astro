@@ -1339,83 +1339,97 @@ try {
 
   .voice-card {
     background: #ffffff;
+    border: 1px solid rgba(0,0,0,0.1);
     border-radius: 4px;
-    padding: 36px 28px;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+    padding: 24px 20px;
+    display: grid;
+    grid-template-columns: 72px 1fr;
+    grid-template-rows: 1fr auto;
+    grid-template-areas:
+      "left  body"
+      "left  ratings"
+      "name  name";
+    column-gap: 18px;
+    row-gap: 0;
     flex-shrink: 0;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.05);
   }
 
   .voice-icon-wrap {
+    grid-area: left;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding-top: 2px;
   }
 
   .voice-icon-ph {
-    width: 52px;
-    height: 52px;
+    width: 44px;
+    height: 44px;
     border-radius: 50%;
     background: #e8e4de;
+    flex-shrink: 0;
   }
 
   .voice-icon-img {
-    width: 52px;
-    height: 52px;
+    width: 44px;
+    height: 44px;
     border-radius: 50%;
     object-fit: cover;
+    flex-shrink: 0;
   }
 
   .voice-body {
-    font-size: 0.875rem;
-    line-height: 2.0;
+    grid-area: body;
+    font-size: 0.82rem;
+    line-height: 1.85;
     color: #444;
-    flex: 1;
   }
 
   .voice-ratings {
+    grid-area: ratings;
     display: flex;
     flex-direction: column;
-    gap: 8px;
-    padding-top: 16px;
-    border-top: 1px solid rgba(0,0,0,0.06);
+    gap: 5px;
+    padding-top: 12px;
   }
 
   .voice-rating-row {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
   }
 
   .voice-rating-label {
-    font-size: 0.7rem;
-    color: #999;
-    letter-spacing: 0.04em;
+    font-size: 0.62rem;
+    color: #bbb;
+    letter-spacing: 0.03em;
     white-space: nowrap;
-    min-width: 7em;
+    min-width: 6.5em;
   }
 
-  .voice-stars { display: flex; gap: 2px; }
+  .voice-stars { display: flex; gap: 1px; }
 
-  .star { font-size: 0.85rem; line-height: 1; }
+  .star { font-size: 0.75rem; line-height: 1; }
   .star--filled { color: #8B6F47; }
   .star--empty  { color: #ddd; }
 
   .voice-intent {
-    font-size: 0.75rem;
+    font-size: 0.68rem;
     color: #8B6F47;
     font-weight: 500;
-    letter-spacing: 0.05em;
-    padding-top: 8px;
+    letter-spacing: 0.04em;
+    padding-top: 6px;
   }
 
   .voice-name {
-    font-size: 0.75rem;
-    color: #aaa;
+    grid-area: name;
+    font-size: 0.7rem;
+    color: #bbb;
     letter-spacing: 0.06em;
     border-top: 1px solid rgba(0,0,0,0.06);
-    padding-top: 16px;
+    padding-top: 12px;
+    margin-top: 12px;
   }
 
   .carousel-arrow {
@@ -1894,26 +1908,34 @@ try {
       ).join('');
     }
 
-    voiceTrack.innerHTML = voices.map(v => `
-      <div class="voice-card">
-        <div class="voice-icon-wrap">
-          ${v.icon ? `<img src="${v.icon}" alt="" class="voice-icon-img">` : '<div class="voice-icon-ph"></div>'}
-        </div>
-        <p class="voice-body">${v.body}</p>
-        <div class="voice-ratings">
-          <div class="voice-rating-row">
-            <span class="voice-rating-label">総合満足度</span>
-            <span class="voice-stars">${renderStars(v.satisfaction)}</span>
+    function makeCard(v: typeof voices[0]): string {
+      return `
+        <div class="voice-card">
+          <div class="voice-icon-wrap">
+            ${v.icon ? `<img src="${v.icon}" alt="" class="voice-icon-img">` : '<div class="voice-icon-ph"></div>'}
           </div>
-          <div class="voice-rating-row">
-            <span class="voice-rating-label">チームの一体感</span>
-            <span class="voice-stars">${renderStars(v.teamwork)}</span>
+          <p class="voice-body">${v.body}</p>
+          <div class="voice-ratings">
+            <div class="voice-rating-row">
+              <span class="voice-rating-label">総合満足度</span>
+              <span class="voice-stars">${renderStars(v.satisfaction)}</span>
+            </div>
+            <div class="voice-rating-row">
+              <span class="voice-rating-label">チームの一体感</span>
+              <span class="voice-stars">${renderStars(v.teamwork)}</span>
+            </div>
+            <div class="voice-intent">${v.intent}</div>
           </div>
-          <div class="voice-intent">${v.intent}</div>
+          <p class="voice-name">${v.name}</p>
         </div>
-        <p class="voice-name">${v.name}</p>
-      </div>
-    `).join('');
+      `;
+    }
+
+    // 末尾に先頭3枚をクローンして無限ループを実現
+    const CLONE_COUNT = 3;
+    voiceTrack.innerHTML =
+      voices.map(makeCard).join('') +
+      voices.slice(0, CLONE_COUNT).map(makeCard).join('');
 
     function getCardWidth(): number {
       const perView = getPerView();
@@ -1931,18 +1953,32 @@ try {
       return Math.max(0, voices.length - getPerView());
     }
 
-    function goToVoice(index: number, animate = true): void {
-      voiceIndex = Math.max(0, Math.min(index, getMaxIndex()));
-      const offset = voiceIndex * (getCardWidth() + CARD_GAP);
+    function applyOffset(index: number, animate: boolean): void {
+      const offset = index * (getCardWidth() + CARD_GAP);
       voiceTrack!.style.transition = animate ? 'transform 0.5s ease' : 'none';
       voiceTrack!.style.transform = `translateX(-${offset}px)`;
-      updateVoiceDots();
     }
 
-    function updateVoiceDots(): void {
+    function goToVoice(index: number, animate = true): void {
+      voiceIndex = index;
+      applyOffset(voiceIndex, animate);
+      // dots always show real index (clamped 0–maxIndex)
+      updateVoiceDots(Math.min(voiceIndex, getMaxIndex()));
+    }
+
+    // クローンゾーンに入ったら静かに先頭へスナップ
+    voiceTrack!.addEventListener('transitionend', () => {
+      if (voiceIndex >= voices.length) {
+        voiceIndex = voiceIndex - voices.length;
+        applyOffset(voiceIndex, false);
+        updateVoiceDots(Math.min(voiceIndex, getMaxIndex()));
+      }
+    });
+
+    function updateVoiceDots(active: number): void {
       const total = getMaxIndex() + 1;
       voiceDotsEl!.innerHTML = Array.from({ length: total }, (_, i) =>
-        `<button class="carousel-dot${i === voiceIndex ? ' carousel-dot--active' : ''}" data-i="${i}" aria-label="${i + 1}ページ目"></button>`
+        `<button class="carousel-dot${i === active ? ' carousel-dot--active' : ''}" data-i="${i}" aria-label="${i + 1}ページ目"></button>`
       ).join('');
       voiceDotsEl!.querySelectorAll('.carousel-dot').forEach(dot => {
         dot.addEventListener('click', () => goToVoice(parseInt((dot as HTMLElement).dataset.i || '0')));
@@ -1953,7 +1989,8 @@ try {
       if (voiceTimer) clearInterval(voiceTimer);
       voiceTimer = setInterval(() => {
         if (!voiceHover) {
-          goToVoice(voiceIndex >= getMaxIndex() ? 0 : voiceIndex + 1);
+          // 無限ループ：maxIndexを超えてクローンへ進み、transitionendでスナップ
+          goToVoice(voiceIndex + 1);
         }
       }, 5500);
     }
@@ -1975,7 +2012,11 @@ try {
 
     const prevBtn = document.getElementById('voice-prev');
     const nextBtn = document.getElementById('voice-next');
-    if (prevBtn) prevBtn.addEventListener('click', () => goToVoice(voiceIndex - 1));
-    if (nextBtn) nextBtn.addEventListener('click', () => goToVoice(voiceIndex >= getMaxIndex() ? 0 : voiceIndex + 1));
+    if (prevBtn) prevBtn.addEventListener('click', () => {
+      goToVoice(voiceIndex <= 0 ? getMaxIndex() : voiceIndex - 1);
+    });
+    if (nextBtn) nextBtn.addEventListener('click', () => {
+      goToVoice(voiceIndex + 1);
+    });
   }
 </script>

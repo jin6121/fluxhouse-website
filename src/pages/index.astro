@@ -334,40 +334,28 @@ try {
 </section>
 
 
-<!-- ========== CASE STUDIES ========== -->
+<!-- ========== VOICE ========== -->
 <section class="section bg-warm" id="cases">
   <div class="container">
-    <div class="sec-title fade-in">
-      <p class="sec-en">CASE</p>
-      <h2 class="sec-ja">利用事例</h2>
+    <div class="sec-title sec-title--center fade-in">
+      <p class="sec-en">VOICE</p>
+      <h2 class="sec-ja">ご利用者の声</h2>
     </div>
-    <!-- TODO: モニター利用2〜3件を獲得後に実際の事例に差し替え -->
-    <div class="case-grid">
-      <div class="case-card fade-in">
-        <div class="case-ph">
-          <!-- TODO: 事例写真に差し替え -->
-        </div>
-        <p class="case-tag">チーム合宿</p>
-        <p class="case-title">導入事例は順次掲載予定</p>
-        <p class="case-body">モニター利用を随時受付中。詳細はお問い合わせください。</p>
+    <p class="voice-lead fade-in">チームで過ごした一日の、率直な感想です。</p>
+
+    <div class="voice-carousel-wrap fade-in">
+      <button class="carousel-arrow carousel-arrow--prev" id="voice-prev" aria-label="前へ">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M13 4l-6 6 6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="voice-carousel" id="voice-carousel">
+        <div class="voice-track" id="voice-track"></div>
       </div>
-      <div class="case-card fade-in">
-        <div class="case-ph">
-          <!-- TODO: 事例写真に差し替え -->
-        </div>
-        <p class="case-tag">ワークショップ</p>
-        <p class="case-title">導入事例は順次掲載予定</p>
-        <p class="case-body">モニター利用を随時受付中。詳細はお問い合わせください。</p>
-      </div>
-      <div class="case-card fade-in">
-        <div class="case-ph">
-          <!-- TODO: 事例写真に差し替え -->
-        </div>
-        <p class="case-tag">経営合宿</p>
-        <p class="case-title">導入事例は順次掲載予定</p>
-        <p class="case-body">モニター利用を随時受付中。詳細はお問い合わせください。</p>
-      </div>
+      <button class="carousel-arrow carousel-arrow--next" id="voice-next" aria-label="次へ">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M7 4l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
     </div>
+    <div class="carousel-dots" id="voice-dots"></div>
+    <p class="voice-disclaimer">※ご本人の許諾を得て掲載しています。</p>
   </div>
 </section>
 
@@ -1321,50 +1309,169 @@ try {
   }
 
   /* ============================================================
-     CASE STUDIES
+     VOICE
      ============================================================ */
-  .case-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 32px;
-  }
-
-  @media (min-width: 640px) {
-    .case-grid { grid-template-columns: repeat(3, 1fr); }
-  }
-
-  .case-card { display: flex; flex-direction: column; }
-
-  .case-ph {
-    aspect-ratio: 4/3;
-    border-radius: 4px;
-    background: #e8e4de;
-    margin-bottom: 20px;
-    /* TODO: 事例写真に差し替え */
-  }
-
-  .case-tag {
-    font-size: 0.65rem;
-    font-weight: 500;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: #8B6F47;
-    margin-bottom: 8px;
-  }
-
-  .case-title {
-    font-family: var(--font-heading);
-    font-size: 1rem;
-    font-weight: 600;
-    color: #1a1a1a;
-    margin-bottom: 10px;
-    line-height: 1.5;
-  }
-
-  .case-body {
-    font-size: 0.85rem;
+  .voice-lead {
+    text-align: center;
+    font-size: 0.95rem;
     color: #666;
-    line-height: 1.8;
+    letter-spacing: 0.05em;
+    margin-bottom: 56px;
+  }
+
+  .voice-carousel-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .voice-carousel {
+    overflow: hidden;
+    flex: 1;
+  }
+
+  .voice-track {
+    display: flex;
+    gap: 24px;
+    will-change: transform;
+  }
+
+  .voice-card {
+    background: #ffffff;
+    border-radius: 4px;
+    padding: 36px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    flex-shrink: 0;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+  }
+
+  .voice-icon-wrap {
+    display: flex;
+    justify-content: center;
+  }
+
+  .voice-icon-ph {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: #e8e4de;
+  }
+
+  .voice-icon-img {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .voice-body {
+    font-size: 0.875rem;
+    line-height: 2.0;
+    color: #444;
+    flex: 1;
+  }
+
+  .voice-ratings {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(0,0,0,0.06);
+  }
+
+  .voice-rating-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .voice-rating-label {
+    font-size: 0.7rem;
+    color: #999;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+    min-width: 7em;
+  }
+
+  .voice-stars { display: flex; gap: 2px; }
+
+  .star { font-size: 0.85rem; line-height: 1; }
+  .star--filled { color: #8B6F47; }
+  .star--empty  { color: #ddd; }
+
+  .voice-intent {
+    font-size: 0.75rem;
+    color: #8B6F47;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    padding-top: 8px;
+  }
+
+  .voice-name {
+    font-size: 0.75rem;
+    color: #aaa;
+    letter-spacing: 0.06em;
+    border-top: 1px solid rgba(0,0,0,0.06);
+    padding-top: 16px;
+  }
+
+  .carousel-arrow {
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    border: 1px solid rgba(0,0,0,0.15);
+    border-radius: 50%;
+    background: #ffffff;
+    color: #1a1a1a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+  }
+
+  .carousel-arrow:hover {
+    background: #1a1a1a;
+    border-color: #1a1a1a;
+    color: #ffffff;
+  }
+
+  @media (max-width: 639px) {
+    .carousel-arrow { display: none; }
+  }
+
+  .carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 32px;
+  }
+
+  .carousel-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: rgba(0,0,0,0.15);
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+  }
+
+  .carousel-dot--active {
+    background: #8B6F47;
+    transform: scale(1.5);
+  }
+
+  .voice-disclaimer {
+    text-align: center;
+    font-size: 0.72rem;
+    color: #bbb;
+    letter-spacing: 0.04em;
+    margin-top: 40px;
   }
 
   /* ============================================================
@@ -1748,4 +1855,127 @@ try {
   );
 
   document.querySelectorAll('.fade-in').forEach((el) => observer.observe(el));
+
+  // ========== VOICE CAROUSEL ==========
+  // 声を追加するにはこの配列に1ブロック足してください
+  const voices = [
+    { icon: '', body: '都心からアクセスしやすく、広くて綺麗で清潔。玄関の扉を開けたときの開放感が素敵で、非日常的な空間に足を踏み入れるワクワク感がありました。社内合宿でまた利用したいです。', satisfaction: 5, teamwork: 5, intent: 'ぜひまた利用したい', name: '役員 まつばらさん' },
+    { icon: '', body: 'フルリモート中心の弊社ですが、オフラインだからこそ顔を合わせて活発に意見交換ができ、有意義な時間でした。開放的な気持ちのまま、みんなで自由にアイデアを出し合える素敵な会になりました。', satisfaction: 5, teamwork: 5, intent: 'ぜひまた利用したい', name: '開発チームリーダー いだ' },
+    { icon: '', body: 'MTGから食事までの切り替えがスムーズで、メリハリをつけられる動線に感謝。BBQができたことで、流動的に全員の会話が生まれたのもよかったです。', satisfaction: 5, teamwork: 5, intent: 'ぜひまた利用したい', name: '人事担当 さっぷ' },
+    { icon: '', body: '清潔感と開放感があり、快適に過ごせました。仕事に集中できる環境とリラックスできる空間が両立しており、企業研修やオフサイト、チームビルディングの場として非常に魅力的です。', satisfaction: 5, teamwork: 4, intent: 'ぜひまた利用したい', name: 'エンジニア N.K' },
+    { icon: '', body: '流山という立地も含めて非常に素敵な場所でした。リビングが快適で、食器や照明等のこだわりを感じる空間です。', satisfaction: 5, teamwork: 5, intent: 'ぜひまた利用したい', name: 'マーケティングマネージャー HAL' },
+    { icon: '', body: '綺麗な設備が整っていて、気持ちよく過ごせました。開放的なリビングが印象的でした。', satisfaction: 5, teamwork: 5, intent: 'ぜひまた利用したい', name: 'セールスマネージャー R' },
+    { icon: '', body: '非常に快適で過ごしやすい場所でした。キッチンには包丁や豊富なお皿などすべてが揃っていて、生ごみ処理機もあり、ごみ捨てにも困りませんでした。', satisfaction: 4, teamwork: 5, intent: '機会があれば利用したい', name: 'カスタマーサクセス ぽぽいんこ' },
+    { icon: '', body: '親身に準備してくださり、当日も最大限過ごしやすいように動いていただき、非常にいい空間でした。', satisfaction: 5, teamwork: 5, intent: 'ぜひまた利用したい', name: 'マーケティング み' },
+    { icon: '', body: 'ありがとうございました。心地よい時間を過ごせました。', satisfaction: 5, teamwork: 4, intent: '機会があれば利用したい', name: '開発 りょうくん' },
+    { icon: '', body: 'あたたかなお人柄のオーナーと、居心地のよい空間で、参加者全員が自然体で過ごすことができました。', satisfaction: 5, teamwork: 5, intent: '機会があれば利用したい', name: 'ご利用者さま' },
+    { icon: '', body: '仕事でもプライベートでも、ぜひまた使わせていただきたいと感じました。キッチン用品も最新のものが揃っていて、とても魅力的でした。', satisfaction: 5, teamwork: 5, intent: 'ぜひまた利用したい', name: 'ご利用者さま（匿名希望）' },
+  ];
+
+  const voiceTrack = document.getElementById('voice-track') as HTMLElement | null;
+  const voiceDotsEl = document.getElementById('voice-dots') as HTMLElement | null;
+  const voiceCarousel = document.getElementById('voice-carousel') as HTMLElement | null;
+
+  if (voiceTrack && voiceDotsEl && voiceCarousel) {
+    const CARD_GAP = 24;
+    let voiceIndex = 0;
+    let voiceTimer: ReturnType<typeof setInterval> | null = null;
+    let voiceHover = false;
+
+    function getPerView(): number {
+      if (window.innerWidth >= 900) return 3;
+      if (window.innerWidth >= 640) return 2;
+      return 1;
+    }
+
+    function renderStars(n: number): string {
+      return Array.from({ length: 5 }, (_, i) =>
+        `<span class="star ${i < n ? 'star--filled' : 'star--empty'}">★</span>`
+      ).join('');
+    }
+
+    voiceTrack.innerHTML = voices.map(v => `
+      <div class="voice-card">
+        <div class="voice-icon-wrap">
+          ${v.icon ? `<img src="${v.icon}" alt="" class="voice-icon-img">` : '<div class="voice-icon-ph"></div>'}
+        </div>
+        <p class="voice-body">${v.body}</p>
+        <div class="voice-ratings">
+          <div class="voice-rating-row">
+            <span class="voice-rating-label">総合満足度</span>
+            <span class="voice-stars">${renderStars(v.satisfaction)}</span>
+          </div>
+          <div class="voice-rating-row">
+            <span class="voice-rating-label">チームの一体感</span>
+            <span class="voice-stars">${renderStars(v.teamwork)}</span>
+          </div>
+          <div class="voice-intent">${v.intent}</div>
+        </div>
+        <p class="voice-name">${v.name}</p>
+      </div>
+    `).join('');
+
+    function getCardWidth(): number {
+      const perView = getPerView();
+      return (voiceCarousel!.offsetWidth - CARD_GAP * (perView - 1)) / perView;
+    }
+
+    function setCardWidths(): void {
+      const w = getCardWidth();
+      voiceTrack!.querySelectorAll('.voice-card').forEach(c => {
+        (c as HTMLElement).style.width = w + 'px';
+      });
+    }
+
+    function getMaxIndex(): number {
+      return Math.max(0, voices.length - getPerView());
+    }
+
+    function goToVoice(index: number, animate = true): void {
+      voiceIndex = Math.max(0, Math.min(index, getMaxIndex()));
+      const offset = voiceIndex * (getCardWidth() + CARD_GAP);
+      voiceTrack!.style.transition = animate ? 'transform 0.5s ease' : 'none';
+      voiceTrack!.style.transform = `translateX(-${offset}px)`;
+      updateVoiceDots();
+    }
+
+    function updateVoiceDots(): void {
+      const total = getMaxIndex() + 1;
+      voiceDotsEl!.innerHTML = Array.from({ length: total }, (_, i) =>
+        `<button class="carousel-dot${i === voiceIndex ? ' carousel-dot--active' : ''}" data-i="${i}" aria-label="${i + 1}ページ目"></button>`
+      ).join('');
+      voiceDotsEl!.querySelectorAll('.carousel-dot').forEach(dot => {
+        dot.addEventListener('click', () => goToVoice(parseInt((dot as HTMLElement).dataset.i || '0')));
+      });
+    }
+
+    function startVoiceAuto(): void {
+      if (voiceTimer) clearInterval(voiceTimer);
+      voiceTimer = setInterval(() => {
+        if (!voiceHover) {
+          goToVoice(voiceIndex >= getMaxIndex() ? 0 : voiceIndex + 1);
+        }
+      }, 5500);
+    }
+
+    setCardWidths();
+    goToVoice(0, false);
+    startVoiceAuto();
+
+    window.addEventListener('resize', () => {
+      setCardWidths();
+      goToVoice(Math.min(voiceIndex, getMaxIndex()), false);
+    });
+
+    const carouselWrap = document.querySelector('.voice-carousel-wrap');
+    if (carouselWrap) {
+      carouselWrap.addEventListener('mouseenter', () => { voiceHover = true; });
+      carouselWrap.addEventListener('mouseleave', () => { voiceHover = false; });
+    }
+
+    const prevBtn = document.getElementById('voice-prev');
+    const nextBtn = document.getElementById('voice-next');
+    if (prevBtn) prevBtn.addEventListener('click', () => goToVoice(voiceIndex - 1));
+    if (nextBtn) nextBtn.addEventListener('click', () => goToVoice(voiceIndex >= getMaxIndex() ? 0 : voiceIndex + 1));
+  }
 </script>

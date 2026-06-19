@@ -1569,7 +1569,7 @@ try {
     width: 6px;
     height: 6px;
     border-radius: 50%;
-    background: rgba(0,0,0,0.15);
+    background: var(--grid-line);
     border: none;
     padding: 0;
     cursor: pointer;
@@ -1584,7 +1584,7 @@ try {
   .voice-disclaimer {
     text-align: center;
     font-size: 0.72rem;
-    color: #bbb;
+    color: var(--grid-line);
     letter-spacing: 0.04em;
     margin-top: 40px;
   }
@@ -1609,14 +1609,6 @@ try {
     display: flex;
     flex-direction: column;
     gap: 28px;
-  }
-
-  .operator-ph {
-    width: 100%;
-    aspect-ratio: 1;
-    border-radius: 4px;
-    background: #e8e4de;
-    /* TODO: 運営者顔写真（/operator.jpg）に差し替え */
   }
 
   .operator-name {
@@ -1651,7 +1643,7 @@ try {
     margin-bottom: 40px;
     padding: 28px 32px;
     border-left: 3px solid var(--olive);
-    background: rgba(139,111,71,0.04);
+    background: rgba(90, 102, 80, 0.04);
   }
 
   .access-highlight p {

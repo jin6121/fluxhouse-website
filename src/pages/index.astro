@@ -1335,7 +1335,7 @@ try {
     color: var(--grid-line);
     letter-spacing: 0.06em;
     padding: 14px 0;
-    border-bottom: 1px solid rgba(0,0,0,0.06);
+    border-bottom: 1px solid var(--grid-line);
   }
 
   .offsite-spec dd {
@@ -1343,13 +1343,13 @@ try {
     color: var(--ink-soft);
     line-height: 1.8;
     padding: 14px 0 14px 16px;
-    border-bottom: 1px solid rgba(0,0,0,0.06);
+    border-bottom: 1px solid var(--grid-line);
   }
 
   .schedule-heading {
     font-family: var(--font-heading);
     font-size: 1rem;
-    font-weight: 600;
+    font-weight: 700;
     color: var(--ink);
     margin-bottom: 8px;
   }
@@ -1363,11 +1363,11 @@ try {
 
   .schedule-footnote {
     font-size: 0.78rem;
-    color: var(--grid-line);
+    color: var(--ink-soft);
     line-height: 1.7;
     margin-top: 20px;
     padding-top: 16px;
-    border-top: 1px solid rgba(0,0,0,0.06);
+    border-top: 1px solid var(--grid-line);
   }
 
   .schedule-list {
@@ -1380,10 +1380,11 @@ try {
     display: flex;
     gap: 24px;
     padding: 16px 0;
-    border-bottom: 1px solid rgba(0,0,0,0.06);
+    border-bottom: 1px solid var(--grid-line);
   }
 
   .schedule-time {
+    font-family: var(--font-label);
     font-size: 0.75rem;
     font-weight: 500;
     letter-spacing: 0.08em;
@@ -1440,6 +1441,7 @@ try {
     flex-shrink: 0;
     position: relative;
     overflow: hidden;
+    transition: box-shadow 0.3s ease;
   }
 
   .voice-card::before {

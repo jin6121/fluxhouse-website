@@ -1235,7 +1235,17 @@ try {
     transform: translateY(-2px);
   }
 
-  /* photo-placeholder */
+  /* ============================================================
+     PHOTO PLACEHOLDER — hide dev badges in production
+     ============================================================ */
+  .photo-badge {
+    display: none;
+  }
+
+  .photo-placeholder::after {
+    display: none;
+  }
+
   .photo-placeholder {
     position: relative;
     overflow: hidden;
@@ -1267,10 +1277,6 @@ try {
 
   .gallery-sub .photo-placeholder {
     aspect-ratio: 4/3;
-  }
-
-  .photo-placeholder::after {
-    display: none;
   }
 
   .photo-badge {

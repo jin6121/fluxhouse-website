@@ -1339,26 +1339,17 @@ try {
     background: #ffffff;
     border: 1px solid rgba(0,0,0,0.1);
     border-radius: 4px;
-    padding: 24px 20px;
-    display: grid;
-    grid-template-columns: 72px 1fr;
-    grid-template-rows: 1fr auto;
-    grid-template-areas:
-      "left  body"
-      "left  ratings"
-      "name  name";
-    column-gap: 18px;
-    row-gap: 0;
+    padding: 28px 24px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
     flex-shrink: 0;
   }
 
   .voice-icon-wrap {
-    grid-area: left;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    padding-top: 2px;
+    justify-content: center;
+    margin-bottom: 18px;
   }
 
   .voice-icon-ph {
@@ -1366,7 +1357,6 @@ try {
     height: 44px;
     border-radius: 50%;
     background: #e8e4de;
-    flex-shrink: 0;
   }
 
   .voice-icon-img {
@@ -1374,22 +1364,23 @@ try {
     height: 44px;
     border-radius: 50%;
     object-fit: cover;
-    flex-shrink: 0;
   }
 
   .voice-body {
-    grid-area: body;
     font-size: 0.82rem;
     line-height: 1.85;
     color: #444;
+    margin-bottom: 20px;
+    flex: 1;
   }
 
   .voice-ratings {
-    grid-area: ratings;
     display: flex;
     flex-direction: column;
-    gap: 5px;
-    padding-top: 12px;
+    gap: 6px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(0,0,0,0.06);
+    margin-bottom: 16px;
   }
 
   .voice-rating-row {
@@ -1399,35 +1390,33 @@ try {
   }
 
   .voice-rating-label {
-    font-size: 0.62rem;
+    font-size: 0.65rem;
     color: #bbb;
     letter-spacing: 0.03em;
     white-space: nowrap;
     min-width: 6.5em;
   }
 
-  .voice-stars { display: flex; gap: 1px; }
+  .voice-stars { display: flex; gap: 2px; }
 
-  .star { font-size: 0.75rem; line-height: 1; }
+  .star { font-size: 0.78rem; line-height: 1; }
   .star--filled { color: #8B6F47; }
   .star--empty  { color: #ddd; }
 
   .voice-intent {
-    font-size: 0.68rem;
+    font-size: 0.7rem;
     color: #8B6F47;
     font-weight: 500;
     letter-spacing: 0.04em;
-    padding-top: 6px;
+    margin-top: 8px;
   }
 
   .voice-name {
-    grid-area: name;
     font-size: 0.7rem;
     color: #bbb;
-    letter-spacing: 0.06em;
+    letter-spacing: 0.05em;
     border-top: 1px solid rgba(0,0,0,0.06);
-    padding-top: 12px;
-    margin-top: 12px;
+    padding-top: 14px;
   }
 
   .carousel-arrow {
@@ -1896,7 +1885,7 @@ try {
     let voiceHover = false;
 
     function getPerView(): number {
-      if (window.innerWidth >= 900) return 2;
+      if (window.innerWidth >= 1100) return 3;
       if (window.innerWidth >= 640) return 2;
       return 1;
     }
@@ -1908,26 +1897,25 @@ try {
     }
 
     function makeCard(v: typeof voices[0]): string {
-      return `
-        <div class="voice-card">
-          <div class="voice-icon-wrap">
-            ${v.icon ? `<img src="${v.icon}" alt="" class="voice-icon-img">` : '<div class="voice-icon-ph"></div>'}
+      const icon = v.icon
+        ? `<img src="${v.icon}" alt="" class="voice-icon-img">`
+        : '<div class="voice-icon-ph"></div>';
+      return `<div class="voice-card">
+        <div class="voice-icon-wrap">${icon}</div>
+        <p class="voice-body">${v.body}</p>
+        <div class="voice-ratings">
+          <div class="voice-rating-row">
+            <span class="voice-rating-label">総合満足度</span>
+            <span class="voice-stars">${renderStars(v.satisfaction)}</span>
           </div>
-          <p class="voice-body">${v.body}</p>
-          <div class="voice-ratings">
-            <div class="voice-rating-row">
-              <span class="voice-rating-label">総合満足度</span>
-              <span class="voice-stars">${renderStars(v.satisfaction)}</span>
-            </div>
-            <div class="voice-rating-row">
-              <span class="voice-rating-label">チームの一体感</span>
-              <span class="voice-stars">${renderStars(v.teamwork)}</span>
-            </div>
-            <div class="voice-intent">${v.intent}</div>
+          <div class="voice-rating-row">
+            <span class="voice-rating-label">チームの一体感</span>
+            <span class="voice-stars">${renderStars(v.teamwork)}</span>
           </div>
-          <p class="voice-name">${v.name}</p>
+          <div class="voice-intent">${v.intent}</div>
         </div>
-      `;
+        <p class="voice-name">${v.name}</p>
+      </div>`;
     }
 
     // 末尾に先頭3枚をクローンして無限ループを実現

@@ -1662,7 +1662,7 @@ try {
 
   .map-btn {
     display: inline-block;
-    border: 1px solid rgba(0,0,0,0.2);
+    border: 1px solid var(--grid-line);
     color: var(--ink-soft);
     background: transparent;
     font-family: var(--font-body);
@@ -1691,7 +1691,7 @@ try {
     width: 100%;
     height: auto;
     border-radius: 4px;
-    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    box-shadow: var(--shadow);
   }
 
   .access-info-list {
@@ -1707,7 +1707,7 @@ try {
     line-height: 1.8;
     color: var(--ink-soft);
     padding: 14px 0;
-    border-bottom: 1px solid rgba(0,0,0,0.06);
+    border-bottom: 1px solid var(--grid-line);
     padding-left: 1.2em;
     position: relative;
   }
@@ -1729,7 +1729,7 @@ try {
     height: auto;
     display: block;
     border-radius: 4px;
-    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    box-shadow: var(--shadow);
   }
 
   /* ============================================================
@@ -1742,7 +1742,7 @@ try {
   .contact-text {
     font-size: 1rem;
     line-height: 2.1;
-    color: rgba(255,255,255,0.65);
+    color: rgba(255,255,255,0.6);
     margin-bottom: 48px;
   }
 
@@ -1757,6 +1757,7 @@ try {
     display: inline-block;
     background: #ffffff;
     color: var(--ink);
+    font-family: var(--font-body);
     font-size: 0.875rem;
     font-weight: 500;
     letter-spacing: 0.08em;

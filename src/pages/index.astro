@@ -1469,7 +1469,7 @@ try {
     width: 44px;
     height: 44px;
     border-radius: 50%;
-    background: #e8e4de;
+    background: var(--paper-alt);
   }
 
   .voice-icon-img {
@@ -1492,7 +1492,7 @@ try {
     flex-direction: column;
     gap: 6px;
     padding-top: 16px;
-    border-top: 1px solid rgba(0,0,0,0.06);
+    border-top: 1px solid var(--grid-line);
     margin-bottom: 16px;
   }
 
@@ -1504,7 +1504,7 @@ try {
 
   .voice-rating-label {
     font-size: 0.65rem;
-    color: #bbb;
+    color: var(--grid-line);
     letter-spacing: 0.03em;
     white-space: nowrap;
     min-width: 6.5em;
@@ -1514,21 +1514,22 @@ try {
 
   .star { font-size: 0.78rem; line-height: 1; }
   .star--filled { color: var(--olive); }
-  .star--empty  { color: #ddd; }
+  .star--empty  { color: var(--grid-line); }
 
   .voice-intent {
+    font-family: var(--font-label);
     font-size: 0.7rem;
     color: var(--olive);
-    font-weight: 500;
-    letter-spacing: 0.04em;
+    font-weight: 400;
+    letter-spacing: 0.06em;
     margin-top: 8px;
   }
 
   .voice-name {
     font-size: 0.7rem;
-    color: #bbb;
+    color: var(--grid-line);
     letter-spacing: 0.05em;
-    border-top: 1px solid rgba(0,0,0,0.06);
+    border-top: 1px solid var(--grid-line);
     padding-top: 14px;
   }
 
@@ -1536,9 +1537,9 @@ try {
     flex-shrink: 0;
     width: 44px;
     height: 44px;
-    border: 1px solid rgba(0,0,0,0.15);
+    border: 1px solid var(--grid-line);
     border-radius: 50%;
-    background: #ffffff;
+    background: var(--paper);
     color: var(--ink);
     display: flex;
     align-items: center;

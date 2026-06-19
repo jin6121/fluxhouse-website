@@ -1102,12 +1102,13 @@ try {
   .pricing-card-head {
     margin-bottom: 28px;
     padding-bottom: 28px;
-    border-bottom: 1px solid rgba(0,0,0,0.08);
+    border-bottom: 1px solid var(--grid-line);
   }
 
   .pricing-plan {
+    font-family: var(--font-label);
     font-size: 0.7rem;
-    font-weight: 600;
+    font-weight: 400;
     letter-spacing: 0.25em;
     text-transform: uppercase;
     color: var(--olive);
@@ -1116,7 +1117,7 @@ try {
 
   .pricing-sub {
     font-size: 0.8rem;
-    color: var(--grid-line);
+    color: var(--ink-soft);
     letter-spacing: 0.05em;
   }
 
@@ -1132,7 +1133,7 @@ try {
   .pricing-tax {
     font-size: 0.8rem;
     font-weight: 400;
-    color: var(--grid-line);
+    color: var(--ink-soft);
     margin-left: 4px;
   }
 
@@ -1180,7 +1181,7 @@ try {
     display: flex;
     gap: 16px;
     padding: 32px 28px;
-    border: 1px solid rgba(0,0,0,0.08);
+    border: 1px solid var(--grid-line);
     border-radius: 4px;
     background: var(--paper-alt);
     align-self: stretch;
@@ -1195,7 +1196,7 @@ try {
   .host-presence-heading {
     font-family: var(--font-heading);
     font-size: 0.95rem;
-    font-weight: 600;
+    font-weight: 700;
     color: var(--ink);
     margin-bottom: 14px;
     letter-spacing: 0.02em;
@@ -1219,6 +1220,7 @@ try {
     display: inline-block;
     border: 1px solid var(--olive);
     color: var(--olive);
+    font-family: var(--font-body);
     font-size: 0.875rem;
     font-weight: 500;
     letter-spacing: 0.1em;
